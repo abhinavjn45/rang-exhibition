@@ -1,0 +1,179 @@
+/* Venue Map Modal - Bootstrap Style */
+
+/* Custom styling for Bootstrap modal */
+.venue-modal-dialog {
+    max-width: 900px;
+}
+
+.venue-modal .modal-content {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+}
+
+.venue-modal .modal-header {
+    background: linear-gradient(135deg, #F3D02D 0%, #e0bd28 100%);
+    border: none;
+    border-radius: 12px 12px 0 0;
+    padding: 25px 30px;
+}
+
+.venue-modal .modal-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.venue-modal .modal-title i {
+    font-size: 24px;
+}
+
+.venue-modal .btn-close {
+    background: rgba(255, 255, 255, 0.8);
+    opacity: 1;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    transition: all 0.3s ease;
+}
+
+.venue-modal .btn-close:hover,
+.venue-modal .btn-close:focus {
+    background: #333;
+    opacity: 1;
+    transform: rotate(90deg);
+}
+
+.venue-modal .modal-body {
+    padding: 0;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.venue-modal .modal-footer {
+    background: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+    padding: 15px 20px;
+    display: flex;
+    gap: 10px;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.venue-modal .modal-footer .btn {
+    padding: 8px 20px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+}
+
+.venue-modal .modal-footer .btn-secondary {
+    background: #e9ecef;
+    color: #333;
+    border: 1px solid #dee2e6;
+}
+
+.venue-modal .modal-footer .btn-secondary:hover {
+    background: #d6d8db;
+    border-color: #adb5bd;
+}
+
+.venue-modal .modal-footer .u-btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(135deg, #F3D02D 0%, #e0bd28 100%);
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 20px;
+    border-radius: 6px;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    border: none;
+}
+
+.venue-modal .modal-footer .u-btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(243, 208, 45, 0.3);
+}
+
+.venue-map-container {
+    width: 100%;
+    height: 500px;
+    position: relative;
+}
+
+.venue-map-container iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    display: block;
+}
+
+.venue-map-icon {
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.venue-map-icon:hover {
+    color: #d4b526 !important;
+    transform: scale(1.15);
+}
+
+/* Backdrop styling */
+.venue-modal.modal .modal-backdrop {
+    background-color: rgba(0, 0, 0, 0.75);
+    backdrop-filter: blur(4px);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .venue-modal-dialog {
+        margin: 1.75rem auto;
+        max-width: 95%;
+    }
+
+    .venue-modal .modal-header {
+        padding: 20px;
+    }
+
+    .venue-modal .modal-title {
+        font-size: 18px;
+    }
+
+    .venue-modal .modal-title i {
+        font-size: 20px;
+    }
+
+    .venue-map-container {
+        height: 400px;
+    }
+}
+
+@media (max-width: 576px) {
+    .venue-modal-dialog {
+        margin: 0.5rem;
+        max-width: calc(100% - 1rem);
+    }
+
+    .venue-modal .modal-header {
+        padding: 18px;
+    }
+
+    .venue-modal .modal-title {
+        font-size: 16px;
+    }
+
+    .venue-map-container {
+        height: 350px;
+    }
+}

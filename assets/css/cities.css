@@ -1,0 +1,285 @@
+/* ============================================
+   Exhibition Search Form Section
+   ============================================ */
+
+.search-section {
+    padding: 60px 20px;
+    background: #ffffff;
+}
+
+.search-card {
+    background: linear-gradient(135deg, rgba(243, 208, 45, 0.03) 0%, rgba(223, 190, 64, 0.03) 100%);
+    border-radius: 20px;
+    padding: 32px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+    max-width: 1300px;
+    margin: 0 auto;
+    border: 1px solid rgba(223, 190, 64, 0.1);
+}
+
+.search-header {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+.search-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 32px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.search-subtitle {
+    font-size: 16px;
+    color: #666;
+    margin: 0;
+}
+
+.exhibition-search-form {
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr auto;
+    gap: 20px;
+    align-items: end;
+}
+
+.search-field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #333;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+}
+
+.field-label i {
+    color: #DFBE40;
+    font-size: 13px;
+}
+
+.form-control {
+    padding: 14px 18px;
+    border: 2px solid #e8e8e8;
+    border-radius: 10px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    transition: all 0.3s ease;
+    background: #fafafa;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: #DFBE40;
+    background: #fff;
+    box-shadow: 0 0 0 4px rgba(223, 190, 64, 0.1);
+}
+
+.search-input-field::placeholder {
+    color: #aaa;
+}
+
+.select-field {
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 45px;
+}
+
+.reset-btn {
+    padding: 14px 28px;
+    background: linear-gradient(135deg, #DFBE40 0%, #F3D02D 100%);
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    font-size: 15px;
+    font-weight: 600;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+    box-shadow: 0 4px 15px rgba(223, 190, 64, 0.3);
+}
+
+.reset-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(223, 190, 64, 0.4);
+}
+
+.reset-btn:active {
+    transform: translateY(0);
+}
+
+.reset-btn i {
+    font-size: 14px;
+}
+
+/* Responsive Design for Search Form */
+@media (max-width: 992px) {
+    .exhibition-search-form {
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+    }
+    
+    .search-input-wrapper {
+        grid-column: 1 / -1;
+    }
+    
+    .reset-wrapper {
+        grid-column: 1 / -1;
+    }
+    
+    .reset-btn {
+        width: 100%;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-section {
+        padding: 40px 16px;
+    }
+    
+    .search-card {
+        padding: 30px 24px;
+        border-radius: 16px;
+    }
+    
+    .search-title {
+        font-size: 26px;
+    }
+    
+    .search-subtitle {
+        font-size: 14px;
+    }
+    
+    .exhibition-search-form {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .search-input-wrapper,
+    .reset-wrapper {
+        grid-column: 1;
+    }
+    
+    .form-control {
+        padding: 12px 16px;
+        font-size: 14px;
+    }
+    
+    .reset-btn {
+        padding: 12px 24px;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 576px) {
+    .search-card {
+        padding: 24px 20px;
+        border-radius: 14px;
+    }
+    
+    .search-title {
+        font-size: 22px;
+    }
+    
+    .field-label {
+        font-size: 13px;
+    }
+    
+    .form-control {
+        padding: 11px 14px;
+        font-size: 13px;
+    }
+}
+
+
+/* ============================================
+   Exhibition Count Display
+   ============================================ */
+
+.exhibition-count {
+    margin-top: 24px;
+    text-align: right;
+}
+
+.exhibition-count span {
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    font-family: 'Poppins', sans-serif;
+}
+
+.exhibition-count span::before {
+    content: '\f03a';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    margin-right: 8px;
+    color: #DFBE40;
+}
+
+/* Responsive - Exhibition Count */
+@media (max-width: 768px) {
+    .exhibition-count {
+        text-align: center;
+        margin-top: 20px;
+    }
+}
+/* ============================================
+   Exhibition List Section
+   ============================================ */
+
+.exhibition-list-section {
+    padding: 60px 20px;
+    background: #FFFFFF;
+}
+
+.exhibition-list-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 25px;
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+.exhibition-load-more {
+    text-align: center;
+    margin-top: 24px;
+}
+
+.exhibition-load-more .u-btn-primary {
+    min-width: 160px;
+}
+
+/* Tablet - 3 columns */
+@media (max-width: 1200px) {
+    .exhibition-list-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 20px;
+    }
+}
+
+/* Mobile - 1 column */
+@media (max-width: 768px) {
+    .exhibition-list-section {
+        padding: 40px 32px;
+    }
+
+    .exhibition-list-grid {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 16px;
+    }
+}

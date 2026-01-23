@@ -1,0 +1,2 @@
+# Ignore secrets and local creds
+admin/assets/api/service-account.json

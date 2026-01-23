@@ -1,0 +1,641 @@
+/* Contact Us Page Styles */
+
+/* 1. Calm Entry Section */
+.contact-entry-section {
+    padding: 100px 40px;
+    background: linear-gradient(135deg, #ffffff 0%, #f5f5f5 100%);
+    text-align: center;
+}
+
+.contact-entry-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-entry-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 800;
+    color: #333333;
+    margin-bottom: 16px;
+    letter-spacing: -1px;
+}
+
+.contact-entry-subtitle {
+    font-size: 20px;
+    color: #666666;
+    line-height: 1.6;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* 2. Why Reach Out Section */
+.contact-reasons-section {
+    padding: 80px 40px;
+    background: #ffffff;
+}
+
+.contact-reasons-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: -1px;
+}
+
+.contact-reasons-list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.reason-item {
+    text-align: center;
+    padding: 20px;
+}
+
+.reason-item i {
+    font-size: 36px;
+    color: #F3D02D;
+    margin-bottom: 16px;
+    display: block;
+}
+
+.reason-item h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 12px;
+}
+
+.reason-item p {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* 3. Contact Form Section */
+.contact-form-section {
+    padding: 80px 40px;
+    background: linear-gradient(135deg, rgba(243, 208, 45, 0.03) 0%, rgba(223, 190, 64, 0.03) 100%);
+}
+
+.contact-form-wrapper {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.contact-form-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: -1px;
+}
+
+.contact-form {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    color: #333333;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-control {
+    padding: 14px 16px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    color: #333333;
+}
+
+.form-control:focus {
+    border-color: #F3D02D;
+    box-shadow: 0 0 0 3px rgba(243, 208, 45, 0.1);
+    outline: none;
+}
+
+.form-control::placeholder {
+    color: #999999;
+}
+
+.contact-form-btn {
+    padding: 16px 32px;
+    background: linear-gradient(135deg, #F3D02D 0%, #DFBE40 100%);
+    color: #333333;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 16px;
+}
+
+.contact-form-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 30px rgba(243, 208, 45, 0.3);
+}
+
+/* 4. Quick Contact Options */
+.contact-quick-section {
+    padding: 80px 40px;
+    background: #ffffff;
+}
+
+/* Allow quick section to span full width */
+.contact-quick-section .container-lg {
+    max-width: none;
+    width: 100%;
+}
+
+.contact-quick-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: -1px;
+}
+
+.contact-quick-options {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 32px;
+    width: 100%;
+}
+
+.quick-card {
+    border: 1px solid #e3e3e3;
+    border-radius: 14px;
+    padding: 22px 18px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    background: #ffffff;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.04);
+    transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.quick-card:hover {
+    border-color: #F3D02D;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 24px rgba(243, 208, 45, 0.15);
+}
+
+.quick-card-icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 12px;
+    border: 1px solid #F3D02D;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #F3D02D;
+    font-size: 22px;
+    margin: 0 auto;
+}
+
+.quick-card-label {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #555555;
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin: 0;
+}
+
+.quick-card-value {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    color: #333333;
+    text-decoration: none;
+    margin: 0;
+    word-break: break-word;
+    transition: color 0.2s ease;
+}
+
+.quick-card-value:hover {
+    color: #F3D02D;
+}
+
+.quick-card-social .quick-card-value {
+    display: none;
+}
+
+.quick-social-links {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+}
+
+.quick-social-link {
+    width: 38px;
+    height: 38px;
+    border-radius: 10px;
+    border: 1px solid #e5e5e5;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: #333333;
+    background: transparent;
+    transition: border-color 0.2s ease, color 0.2s ease;
+    text-decoration: none;
+}
+
+.quick-social-link:hover {
+    border-color: #F3D02D;
+    color: #F3D02D;
+}
+
+/* 5. Office Section */
+.contact-office-section {
+    padding: 80px 40px;
+    background: linear-gradient(135deg, rgba(243, 208, 45, 0.03) 0%, rgba(223, 190, 64, 0.03) 100%);
+}
+
+.contact-office-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 50px;
+    letter-spacing: -1px;
+}
+
+.contact-office-content {
+    width: 100%;
+    max-width: none;
+    margin: 0;
+}
+
+.office-text {
+    text-align: center;
+}
+
+.office-description {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666666;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.office-service {
+    font-size: 16px;
+    line-height: 1.8;
+    color: #666666;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+}
+
+.city-grid {
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 36px;
+}
+
+.city-card {
+    background: #ffffff;
+    border: 1px solid #f0f0f0;
+    border-radius: 14px;
+    padding: 20px 16px;
+    text-align: center;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.04);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.city-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.06);
+}
+
+.city-icon svg {
+    width: 64px;
+    height: 64px;
+    margin: 0 auto 12px;
+    display: block;
+}
+
+.city-icon img {
+    width: 64px;
+    height: 64px;
+    object-fit: contain;
+    margin: 0 auto 12px;
+    display: block;
+}
+
+.city-name {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #333333;
+    margin: 4px 0;
+}
+
+.city-note {
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    color: #777777;
+    margin: 0;
+}
+
+/* 6. Process/Expectations Section */
+.contact-process-section {
+    padding: 80px 40px;
+    background: #ffffff;
+}
+
+.contact-process-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 800;
+    color: #333333;
+    text-align: center;
+    margin-bottom: 60px;
+    letter-spacing: -1px;
+}
+
+.contact-process-steps {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr;
+    gap: 30px;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.process-step {
+    text-align: center;
+    padding: 30px 20px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.step-number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #F3D02D 0%, #DFBE40 100%);
+    color: #ffffff;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    box-shadow: 0 8px 25px rgba(243, 208, 45, 0.25);
+}
+
+.step-title {
+    font-family: 'Poppins', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #333333;
+    margin-bottom: 12px;
+}
+
+.step-description {
+    font-size: 14px;
+    color: #666666;
+    line-height: 1.6;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.process-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.process-arrow i {
+    font-size: 24px;
+    color: #F3D02D;
+}
+
+/* 7. Final Confidence Close */
+.contact-confidence-section {
+    padding: 80px 40px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.contact-confidence-content {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.confidence-text {
+    font-family: 'Playfair Display', serif;
+    font-size: 36px;
+    font-weight: 800;
+    color: #333333;
+    line-height: 1.6;
+    letter-spacing: -1px;
+}
+
+/* Responsive Styles */
+@media (max-width: 991px) {
+    .contact-entry-section {
+        padding: 60px 32px;
+    }
+
+    .contact-entry-title {
+        font-size: 40px;
+    }
+
+    .contact-reasons-section,
+    .contact-form-section,
+    .contact-quick-section,
+    .contact-office-section,
+    .contact-process-section,
+    .contact-confidence-section {
+        padding: 60px 32px;
+    }
+
+    .contact-reasons-title,
+    .contact-form-title,
+    .contact-quick-title,
+    .contact-office-title,
+    .contact-process-title {
+        font-size: 36px;
+    }
+
+    .contact-reasons-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+    }
+
+    .city-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .contact-quick-options {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 24px;
+    }
+
+    .contact-process-steps {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .process-arrow {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .contact-entry-section {
+        padding: 50px 28px;
+    }
+
+    .contact-entry-title {
+        font-size: 28px;
+    }
+
+    .contact-entry-subtitle {
+        font-size: 16px;
+    }
+
+    .contact-reasons-section,
+    .contact-form-section,
+    .contact-quick-section,
+    .contact-office-section,
+    .contact-process-section,
+    .contact-confidence-section {
+        padding: 50px 28px;
+    }
+
+    .contact-reasons-title,
+    .contact-form-title,
+    .contact-quick-title,
+    .contact-office-title,
+    .contact-process-title {
+        font-size: 24px;
+        margin-bottom: 40px;
+    }
+
+    .city-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .contact-reasons-list {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .reason-item i {
+        font-size: 28px;
+    }
+
+    .reason-item h3 {
+        font-size: 16px;
+    }
+
+    .reason-item p {
+        font-size: 13px;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .contact-quick-options {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 20px;
+    }
+
+    .quick-card {
+        padding: 18px 14px;
+    }
+
+    .quick-card-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 20px;
+    }
+
+    .quick-card-value {
+        font-size: 14px;
+    }
+
+    .office-description,
+    .office-service {
+        font-size: 14px;
+    }
+
+    .contact-process-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .process-step {
+        padding: 24px 16px;
+    }
+
+    .step-number {
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
+        margin-bottom: 16px;
+    }
+
+    .step-title {
+        font-size: 14px;
+    }
+
+    .step-description {
+        font-size: 13px;
+    }
+
+    .confidence-text {
+        font-size: 24px;
+    }
+}

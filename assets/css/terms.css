@@ -1,0 +1,134 @@
+:root {
+    --terms-bg: #FAFAF8;
+    --terms-border: #E8E3D8;
+    --highlight-color: #F3D02D;
+    --text-dark: #333333;
+    --text-muted: #666666;
+}
+
+body.terms-page {
+    background: var(--terms-bg);
+    color: var(--text-dark);
+    font-family: 'Poppins', sans-serif;
+}
+
+.terms-wrapper {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 120px 20px 80px;
+}
+
+.terms-hero {
+    background: linear-gradient(135deg, rgba(243, 208, 45, 0.05) 0%, rgba(0, 0, 0, 0.02) 100%);
+    border: 1px solid var(--terms-border);
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    margin-bottom: 32px;
+}
+
+.terms-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 12px;
+}
+
+.terms-subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin: 0 0 12px 0;
+}
+
+.terms-meta {
+    display: flex;
+    gap: 16px;
+    color: var(--text-muted);
+    font-size: 14px;
+    align-items: center;
+}
+
+.terms-section {
+    background: #FFFFFF;
+    border: 1px solid var(--terms-border);
+    border-radius: 14px;
+    padding: 24px;
+    margin-bottom: 18px;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+}
+
+.terms-section h3 {
+    font-size: 20px;
+    font-weight: 700;
+    margin: 0 0 12px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.terms-section h3 i {
+    color: var(--highlight-color);
+}
+
+.terms-section p {
+    margin: 0 0 10px 0;
+    color: var(--text-muted);
+    line-height: 1.65;
+    font-size: 15px;
+}
+
+.terms-list {
+    padding-left: 18px;
+    margin: 0;
+    color: var(--text-muted);
+    line-height: 1.7;
+    font-size: 15px;
+}
+
+.terms-list li {
+    margin-bottom: 8px;
+}
+
+.cta-card {
+    margin-top: 28px;
+    padding: 22px;
+    border-radius: 12px;
+    background: linear-gradient(135deg, rgba(243, 208, 45, 0.12) 0%, rgba(223, 190, 64, 0.12) 100%);
+    border: 1px solid var(--terms-border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.cta-text {
+    font-size: 16px;
+    color: var(--text-dark);
+    margin: 0;
+}
+
+.footer-note {
+    text-align: center;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-top: 30px;
+}
+
+@media (max-width: 768px) {
+    .terms-wrapper {
+        padding: 100px 16px 60px;
+    }
+
+    .terms-title {
+        font-size: 32px;
+    }
+
+    .terms-hero {
+        padding: 24px;
+    }
+
+    .terms-section {
+        padding: 20px;
+    }
+}

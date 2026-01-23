@@ -1,0 +1,135 @@
+/* ============================================
+   Gallery Page Styles
+   ============================================ */
+
+:root {
+    --gallery-bg: #FAFAF8;
+    --gallery-border: #E8E3D8;
+    --highlight-color: #F3D02D;
+    --text-dark: #333333;
+    --text-muted: #666666;
+}
+
+/* ============================================
+   Breadcrumb Section
+   ============================================ */
+
+.breadcrumb-section {
+    padding: 120px 20px 0;
+    background: linear-gradient(135deg, rgba(243, 208, 45, 0.03) 0%, rgba(223, 190, 64, 0.03) 100%);
+    border-bottom: 1px solid var(--gallery-border);
+    display: flex;
+    align-items: flex-end;
+}
+
+.breadcrumb-nav {
+    margin-bottom: 30px;
+}
+
+.breadcrumb-list {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 8px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.breadcrumb-item {
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-link {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    padding: 6px 12px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+}
+
+.breadcrumb-link:hover {
+    color: #F3D02D;
+    background: rgba(243, 208, 45, 0.1);
+}
+
+.breadcrumb-link i {
+    font-size: 12px;
+}
+
+.breadcrumb-separator {
+    color: var(--exhibition-border);
+    font-size: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.breadcrumb-item.active span {
+    color: var(--text-dark);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 6px 12px;
+    background: rgba(243, 208, 45, 0.15);
+    border-radius: 20px;
+}
+
+/* Page Header */
+.page-header {
+    text-align: left;
+    max-width: 800px;
+    padding: 20px 0;
+}
+
+.page-title {
+    font-size: 42px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 12px;
+    font-family: 'Playfair Display', serif;
+    line-height: 1.2;
+}
+
+.page-subtitle {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* ============================================
+   Gallery Hero Section
+   ============================================ */
+
+.gallery-hero-section {
+    padding: 60px 20px 40px;
+    background: linear-gradient(135deg, rgba(243, 208, 45, 0.05) 0%, rgba(0, 0, 0, 0.02) 100%);
+}
+
+.gallery-hero-content {
+    max-width: 800px;
+}
+
+.gallery-hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 15px;
+    line-height: 1.2;
+}
+
+.gallery-hero-subtitle {
+    font-family: 'Poppins', sans-serif;
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 600px;
+    line-height: 1.6;
+}

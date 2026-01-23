@@ -1,0 +1,2210 @@
+<html lang="en" class="h-full"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RANG - A Celebration of Colours &amp; Lifestyle</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    .font-display {
+      font-family: 'Playfair Display', serif;
+    }
+
+    .font-body {
+      font-family: 'Inter', sans-serif;
+    }
+
+    .nav-wrapper {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      right: 20px;
+      z-index: 1000;
+      transition: all 0.3s ease;
+      background-color: rgba(245, 239, 228, 0.98);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      border-radius: 50px;
+      padding: 16px 32px !important;
+    }
+
+    .nav-wrapper.scrolled {
+      background-color: rgba(245, 239, 228, 1);
+      box-shadow: 0 6px 30px rgba(0, 0, 0, 0.15);
+      top: 12px;
+    }
+
+    @media (max-width: 768px) {
+      .nav-wrapper {
+        top: 12px;
+        left: 12px;
+        right: 12px;
+        padding: 12px 20px !important;
+        border-radius: 40px;
+      }
+
+      .nav-wrapper.scrolled {
+        top: 8px;
+      }
+    }
+
+    .mobile-menu {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 80%;
+      max-width: 300px;
+      height: 100%;
+      background-color: #F5EFE4;
+      box-shadow: -4px 0 20px rgba(0, 0, 0, 0.15);
+      transition: right 0.3s ease;
+      z-index: 2000;
+      overflow-y: auto;
+      padding: 80px 30px 30px;
+    }
+
+    .mobile-menu.active {
+      right: 0;
+    }
+
+    .mobile-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+      z-index: 1500;
+    }
+
+    .mobile-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .mobile-menu-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    .mobile-menu-close:hover {
+      transform: rotate(90deg);
+    }
+
+    .mobile-nav-link {
+      display: block;
+      padding: 16px 0;
+      font-size: 18px;
+      font-weight: 500;
+      color: #111111;
+      text-decoration: none;
+      border-bottom: 1px solid rgba(17, 17, 17, 0.1);
+      transition: color 0.3s ease, padding-left 0.3s ease;
+    }
+
+    .mobile-nav-link:hover {
+      color: #E61C72;
+      padding-left: 8px;
+    }
+
+    .mobile-cta-button {
+      margin-top: 24px;
+      width: 100%;
+      padding: 14px 24px;
+      border-radius: 25px;
+      font-weight: 600;
+      background-color: #E61C72;
+      color: #F5EFE4;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .mobile-cta-button:hover {
+      background-color: #C51760;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(230, 28, 114, 0.3);
+    }
+
+    .hamburger-menu {
+      cursor: pointer;
+      padding: 8px;
+      transition: transform 0.2s ease;
+    }
+
+    .hamburger-menu:hover {
+      transform: scale(1.1);
+    }
+
+    .nav-link {
+      position: relative;
+      transition: color 0.3s ease;
+    }
+
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #E61C72;
+      transition: width 0.3s ease;
+    }
+
+    .nav-link:hover::after {
+      width: 100%;
+    }
+
+    .cta-button {
+      transition: all 0.3s ease;
+    }
+
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 25px rgba(230, 28, 114, 0.3);
+    }
+
+    .cta-button-secondary {
+      transition: all 0.3s ease;
+    }
+
+    .cta-button-secondary:hover {
+      transform: translateY(-2px);
+      background-color: #111111;
+      color: #F5EFE4;
+    }
+
+    .hero-wrapper {
+      background: linear-gradient(135deg, #F5EFE4 0%, #FFF9EF 50%, #FFF5E8 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .illustrated-stall {
+      position: absolute;
+      opacity: 1;
+    }
+
+    .stall-large-left {
+      bottom: 0;
+      left: -5%;
+      width: 380px;
+      height: 450px;
+      z-index: 3;
+    }
+
+    .stall-large-right {
+      bottom: 0;
+      right: -5%;
+      width: 380px;
+      height: 450px;
+      z-index: 3;
+    }
+
+    .stall-medium {
+      top: 15%;
+      right: 8%;
+      width: 280px;
+      height: 320px;
+      z-index: 2;
+    }
+
+    @media (max-width: 1024px) {
+      .stall-large-left {
+        width: 280px;
+        height: 350px;
+        left: -8%;
+      }
+
+      .stall-large-right {
+        width: 280px;
+        height: 350px;
+        right: -8%;
+      }
+
+      .stall-medium {
+        display: none;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .stall-large-left {
+        width: 200px;
+        height: 250px;
+        left: -10%;
+      }
+
+      .stall-large-right {
+        width: 200px;
+        height: 250px;
+        right: -10%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .stall-large-left {
+        width: 150px;
+        height: 200px;
+        left: -5%;
+        bottom: 5%;
+      }
+
+      .stall-large-right {
+        width: 150px;
+        height: 200px;
+        right: -5%;
+        bottom: 5%;
+      }
+    }
+
+    .fabric-banner {
+      position: absolute;
+      opacity: 1;
+      animation: bannerSway 6s ease-in-out infinite;
+      transform-origin: top center;
+      z-index: 4;
+    }
+
+    .banner-1 {
+      top: 0;
+      left: 18%;
+      width: 100px;
+      height: 250px;
+    }
+
+    .banner-2 {
+      top: 0;
+      right: 18%;
+      width: 100px;
+      height: 250px;
+      animation-delay: 2s;
+    }
+
+    .banner-3 {
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 200px;
+      animation-delay: 4s;
+    }
+
+    @keyframes bannerSway {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(4deg); }
+    }
+
+    @media (max-width: 1024px) {
+      .banner-1 {
+        width: 80px;
+        height: 200px;
+        left: 12%;
+      }
+
+      .banner-2 {
+        width: 80px;
+        height: 200px;
+        right: 12%;
+      }
+
+      .banner-3 {
+        width: 60px;
+        height: 150px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .banner-1 {
+        width: 60px;
+        height: 150px;
+        left: 8%;
+      }
+
+      .banner-2 {
+        width: 60px;
+        height: 150px;
+        right: 8%;
+      }
+
+      .banner-3 {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .banner-1 {
+        width: 45px;
+        height: 120px;
+        left: 5%;
+      }
+
+      .banner-2 {
+        width: 45px;
+        height: 120px;
+        right: 5%;
+      }
+    }
+
+    .textile-pattern {
+      position: absolute;
+      opacity: 0.85;
+    }
+
+    .pattern-1 {
+      top: 12%;
+      left: 8%;
+      width: 150px;
+      height: 150px;
+      z-index: 1;
+    }
+
+    .pattern-2 {
+      bottom: 18%;
+      right: 12%;
+      width: 120px;
+      height: 120px;
+      z-index: 1;
+    }
+
+    .pattern-3 {
+      top: 50%;
+      left: 5%;
+      width: 100px;
+      height: 100px;
+      z-index: 1;
+      opacity: 0.7;
+    }
+
+    @media (max-width: 1024px) {
+      .pattern-1 {
+        width: 120px;
+        height: 120px;
+      }
+
+      .pattern-2 {
+        width: 100px;
+        height: 100px;
+      }
+
+      .pattern-3 {
+        width: 80px;
+        height: 80px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .pattern-1 {
+        display: none;
+      }
+
+      .pattern-2 {
+        width: 80px;
+        height: 80px;
+        bottom: 25%;
+      }
+
+      .pattern-3 {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .pattern-2 {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    .illustrated-arch {
+      position: absolute;
+      opacity: 0.9;
+      z-index: 2;
+    }
+
+    .arch-left {
+      top: 20%;
+      left: 10%;
+      width: 160px;
+      height: 180px;
+    }
+
+    .arch-right {
+      top: 35%;
+      right: 15%;
+      width: 140px;
+      height: 160px;
+    }
+
+    @media (max-width: 1024px) {
+      .arch-left {
+        width: 120px;
+        height: 140px;
+      }
+
+      .arch-right {
+        width: 100px;
+        height: 120px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .arch-left {
+        display: none;
+      }
+
+      .arch-right {
+        display: none;
+      }
+    }
+
+    .hanging-thread {
+      position: absolute;
+      width: 4px;
+      height: 200px;
+      animation: threadSway 5s ease-in-out infinite;
+      transform-origin: top center;
+      z-index: 4;
+    }
+
+    .thread-1 {
+      top: 0;
+      left: 25%;
+      background: linear-gradient(to bottom, #E61C72, transparent);
+      animation-delay: 0s;
+    }
+
+    .thread-2 {
+      top: 0;
+      left: 38%;
+      background: linear-gradient(to bottom, #E3C24A, transparent);
+      animation-delay: 1.5s;
+    }
+
+    .thread-3 {
+      top: 0;
+      right: 25%;
+      background: linear-gradient(to bottom, #E61C72, transparent);
+      animation-delay: 3s;
+    }
+
+    .thread-4 {
+      top: 0;
+      right: 38%;
+      background: linear-gradient(to bottom, #E3C24A, transparent);
+      animation-delay: 4.5s;
+    }
+
+    @keyframes threadSway {
+      0%, 100% { transform: rotate(0deg); }
+      50% { transform: rotate(3deg); }
+    }
+
+    @media (max-width: 768px) {
+      .hanging-thread {
+        height: 150px;
+        width: 3px;
+      }
+
+      .thread-2 {
+        display: none;
+      }
+
+      .thread-4 {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hanging-thread {
+        height: 100px;
+        width: 2px;
+      }
+    }
+
+    .display-table {
+      position: absolute;
+      opacity: 0.85;
+      z-index: 2;
+    }
+
+    .table-left {
+      bottom: 15%;
+      left: 12%;
+      width: 200px;
+      height: 120px;
+    }
+
+    .table-right {
+      bottom: 20%;
+      right: 18%;
+      width: 180px;
+      height: 100px;
+    }
+
+    @media (max-width: 1024px) {
+      .table-left {
+        width: 160px;
+        height: 100px;
+      }
+
+      .table-right {
+        width: 140px;
+        height: 85px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .table-left {
+        display: none;
+      }
+
+      .table-right {
+        display: none;
+      }
+    }
+
+    .lotus-svg {
+      transition: transform 0.3s ease;
+      filter: drop-shadow(0 4px 12px rgba(230, 28, 114, 0.15));
+    }
+
+    .lotus-svg:hover {
+      transform: scale(1.05) rotate(5deg);
+    }
+
+    .illustrated-lotus {
+      position: absolute;
+      opacity: 0.85;
+      z-index: 2;
+    }
+
+    .lotus-large {
+      top: 25%;
+      left: 12%;
+      width: 120px;
+      height: 120px;
+    }
+
+    .lotus-small {
+      bottom: 25%;
+      right: 15%;
+      width: 90px;
+      height: 90px;
+    }
+
+    @media (max-width: 1024px) {
+      .lotus-large {
+        width: 100px;
+        height: 100px;
+      }
+
+      .lotus-small {
+        width: 75px;
+        height: 75px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .lotus-large {
+        width: 80px;
+        height: 80px;
+        top: 20%;
+        left: 8%;
+      }
+
+      .lotus-small {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .lotus-large {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    .brand-title {
+      font-size: clamp(4rem, 12vw, 9rem);
+      letter-spacing: 0.15em;
+      line-height: 1;
+      position: relative;
+      z-index: 10;
+    }
+
+    .tagline-text {
+      font-size: clamp(1rem, 2.5vw, 1.5rem);
+      position: relative;
+      z-index: 10;
+    }
+
+    @media (max-width: 768px) {
+      .brand-title {
+        letter-spacing: 0.1em;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .brand-title {
+        letter-spacing: 0.08em;
+      }
+
+      .tagline-text {
+        font-size: clamp(0.9rem, 2vw, 1.2rem);
+      }
+    }
+
+    .scroll-indicator {
+      animation: bounce 2s infinite;
+      position: relative;
+      z-index: 10;
+    }
+
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(10px); }
+    }
+
+    .festive-garland {
+      position: absolute;
+      top: 5%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 100px;
+      opacity: 0.9;
+      z-index: 4;
+    }
+
+    @media (max-width: 1024px) {
+      .festive-garland {
+        width: 400px;
+        height: 80px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .festive-garland {
+        width: 300px;
+        height: 60px;
+        top: 3%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .festive-garland {
+        width: 220px;
+        height: 50px;
+        top: 2%;
+      }
+    }
+
+    .about-section {
+      background-color: #FFF9EF;
+      position: relative;
+    }
+
+    .feature-card {
+      background: linear-gradient(135deg, #FFFFFF 0%, #FFF9EF 100%);
+      border: 1px solid rgba(17, 17, 17, 0.1);
+      border-radius: 16px;
+      padding: 48px 32px;
+      text-align: center;
+      transition: all 0.4s ease;
+      cursor: pointer;
+      position: relative;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    }
+
+    .feature-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 12px 32px rgba(230, 28, 114, 0.12);
+      border-color: rgba(230, 28, 114, 0.2);
+    }
+
+    .feature-icon-wrapper {
+      position: relative;
+      margin: 0 auto 28px;
+      width: 90px;
+      height: 90px;
+      background: linear-gradient(135deg, rgba(230, 28, 114, 0.08) 0%, rgba(227, 194, 74, 0.08) 100%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.4s ease;
+    }
+
+    .feature-card:hover .feature-icon-wrapper {
+      transform: scale(1.05);
+      background: linear-gradient(135deg, rgba(230, 28, 114, 0.15) 0%, rgba(227, 194, 74, 0.15) 100%);
+    }
+
+    .feature-icon {
+      width: 48px;
+      height: 48px;
+    }
+
+    .feature-card-number {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 32px;
+      height: 32px;
+      background-color: rgba(230, 28, 114, 0.1);
+      color: #E61C72;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 600;
+      font-size: 16px;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover .feature-card-number {
+      background-color: #E61C72;
+      color: #F5EFE4;
+      transform: scale(1.1);
+    }
+
+    .feature-card-description {
+      font-size: 15px;
+      line-height: 1.7;
+      color: #2A2A2A;
+      margin-top: 12px;
+      opacity: 0.7;
+      font-weight: 300;
+    }
+
+    /* Cities Section Styles */
+    .cities-section {
+      background-color: #FFF5E8;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .city-stall {
+      transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .city-stall:hover {
+      transform: translateY(-10px) scale(1.05);
+      filter: drop-shadow(8px 8px 0px rgba(17, 17, 17, 0.2));
+    }
+
+    .city-card-badge {
+      display: inline-block;
+      background: linear-gradient(135deg, #E61C72 0%, #C51760 100%);
+      color: #FFFFFF;
+      padding: 6px 16px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      margin-bottom: 16px;
+      text-transform: uppercase;
+    }
+
+    .city-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: #111111;
+      margin-bottom: 12px;
+      line-height: 1.2;
+    }
+
+    .city-card-subtitle {
+      font-size: 15px;
+      color: #E61C72;
+      font-weight: 600;
+      margin-bottom: 16px;
+      letter-spacing: 0.03em;
+    }
+
+    .city-card-detail {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 10px;
+      font-size: 14px;
+      color: #2A2A2A;
+    }
+
+    .city-card-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    .city-card-illustration {
+      margin: 20px 0;
+      padding: 16px;
+      background: linear-gradient(135deg, #FFF9EF 0%, #FFF5E8 100%);
+      border-radius: 12px;
+      border: 2px solid #111111;
+    }
+
+    .city-info-card-journey {
+      animation: fadeInUp 0.4s ease;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .city-modal-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: 9998;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.3s ease, visibility 0.3s ease;
+    }
+
+    .city-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .city-modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%) scale(0.9);
+      max-width: 600px;
+      width: 90%;
+      max-height: 90vh;
+      overflow-y: auto;
+      background: #FFFFFF;
+      border: 4px solid #111111;
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      z-index: 9999;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .city-modal.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translate(-50%, -50%) scale(1);
+    }
+
+    .city-modal-close {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background-color: #F5EFE4;
+      border: 2px solid #111111;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
+    }
+
+    .city-modal-close:hover {
+      background-color: #E61C72;
+      transform: rotate(90deg);
+    }
+
+    .city-modal-close:hover svg {
+      stroke: #FFFFFF;
+    }
+
+    .carousel-container {
+      position: relative;
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 0 80px;
+      overflow: hidden;
+    }
+
+    .carousel-track {
+      display: flex;
+      gap: 30px;
+      transition: transform 0.4s ease;
+      position: relative;
+      z-index: 2;
+    }
+
+    .carousel-slide {
+      flex: 0 0 auto;
+      width: 280px;
+    }
+
+    @media (max-width: 768px) {
+      .carousel-container {
+        padding: 0 60px;
+      }
+
+      .carousel-slide {
+        width: 220px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .carousel-container {
+        padding: 0 50px;
+      }
+
+      .carousel-slide {
+        width: 200px;
+      }
+    }
+
+    .carousel-button {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      background-color: #F5EFE4;
+      border: 3px solid #111111;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 10;
+      transition: all 0.3s ease;
+    }
+
+    .carousel-button:hover {
+      background-color: #E61C72;
+      transform: translateY(-50%) scale(1.1);
+    }
+
+    .carousel-button:hover svg {
+      stroke: #F5EFE4;
+    }
+
+    .carousel-button-prev {
+      left: 10px;
+    }
+
+    .carousel-button-next {
+      right: 10px;
+    }
+
+    .carousel-button:disabled {
+      opacity: 0.3;
+      cursor: not-allowed;
+    }
+
+    .carousel-button:disabled:hover {
+      background-color: #F5EFE4;
+      transform: translateY(-50%);
+    }
+
+    .carousel-button:disabled:hover svg {
+      stroke: #111111;
+    }
+
+    /* Dual Path Section Styles */
+    .dual-path-section {
+      background-color: #FFF9EF;
+    }
+
+    .dual-panel {
+      transition: transform 0.4s ease;
+    }
+
+    .dual-panel-content {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+
+    .dual-panel:hover {
+      transform: translateY(-8px);
+    }
+
+    .dual-panel:hover .dual-panel-illustration svg {
+      filter: drop-shadow(6px 6px 0px rgba(230, 28, 114, 0.15));
+    }
+
+    .dual-panel-illustration {
+      transition: all 0.4s ease;
+    }
+
+    .dual-panel:hover .dual-panel-illustration {
+      transform: scale(1.02);
+    }
+
+    .dual-panel-cta {
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .visitor-cta:hover {
+      background-color: #C51760;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(230, 28, 114, 0.3);
+    }
+
+    .exhibitor-cta:hover {
+      background-color: #D4B03E;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(227, 194, 74, 0.3);
+    }
+
+    .dual-panel-cta::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.6s ease, height 0.6s ease;
+    }
+
+    .dual-panel-cta:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    @media (max-width: 1024px) {
+      .dual-panel {
+        padding: 0;
+      }
+
+      .dual-panel:hover {
+        transform: translateY(-4px);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .dual-panel:hover {
+        transform: translateY(0);
+      }
+
+      .dual-panel:hover .dual-panel-illustration {
+        transform: scale(1);
+      }
+    }
+
+    .collage-frame {
+      position: absolute;
+      border: 4px solid #111111;
+      background: #FFFFFF;
+      box-shadow: 8px 8px 0px rgba(17, 17, 17, 0.15);
+      transition: all 0.4s ease;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .collage-frame:hover {
+      transform: scale(1.05) rotate(0deg) !important;
+      box-shadow: 12px 12px 0px rgba(230, 28, 114, 0.3);
+      z-index: 50 !important;
+    }
+
+    .stat-badge {
+      position: absolute;
+      padding: 14px 28px;
+      border-radius: 50px;
+      border: 3px solid #111111;
+      font-weight: 700;
+      font-size: 18px;
+      box-shadow: 5px 5px 0px rgba(17, 17, 17, 0.2);
+      transition: all 0.3s ease;
+      z-index: 30;
+      animation: floatBadge 3s ease-in-out infinite;
+      white-space: nowrap;
+    }
+
+    @keyframes floatBadge {
+      0%, 100% { transform: translateY(0px) rotate(var(--rotate)); }
+      50% { transform: translateY(-12px) rotate(var(--rotate)); }
+    }
+
+    .stat-badge:hover {
+      transform: scale(1.1) rotate(0deg) !important;
+      box-shadow: 7px 7px 0px rgba(17, 17, 17, 0.3);
+      animation-play-state: paused;
+    }
+
+    .quote-bubble {
+      position: absolute;
+      background: #FFFFFF;
+      border: 3px solid #111111;
+      border-radius: 24px;
+      padding: 18px 24px;
+      max-width: 240px;
+      font-size: 15px;
+      font-weight: 600;
+      box-shadow: 6px 6px 0px rgba(17, 17, 17, 0.15);
+      z-index: 35;
+      transition: all 0.3s ease;
+      line-height: 1.5;
+    }
+
+    .quote-bubble::after {
+      content: '';
+      position: absolute;
+      bottom: -14px;
+      left: 30px;
+      width: 0;
+      height: 0;
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      border-top: 14px solid #111111;
+    }
+
+    .quote-bubble::before {
+      content: '';
+      position: absolute;
+      bottom: -9px;
+      left: 33px;
+      width: 0;
+      height: 0;
+      border-left: 11px solid transparent;
+      border-right: 11px solid transparent;
+      border-top: 11px solid #FFFFFF;
+      z-index: 1;
+    }
+
+    .quote-bubble:hover {
+      transform: scale(1.05);
+      box-shadow: 8px 8px 0px rgba(230, 28, 114, 0.3);
+    }
+
+    @media (max-width: 1024px) {
+      .collage-frame {
+        display: none;
+      }
+
+      .collage-frame:nth-child(1),
+      .collage-frame:nth-child(2),
+      .collage-frame:nth-child(3) {
+        display: block;
+      }
+
+      .stat-badge {
+        font-size: 15px;
+        padding: 12px 22px;
+      }
+
+      .quote-bubble {
+        max-width: 200px;
+        font-size: 14px;
+        padding: 16px 20px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .collage-frame:nth-child(3) {
+        display: none;
+      }
+
+      .stat-badge {
+        font-size: 13px;
+        padding: 10px 18px;
+      }
+
+      .quote-bubble {
+        max-width: 180px;
+        font-size: 13px;
+        padding: 14px 18px;
+      }
+    }
+
+    .footer-wrapper {
+      background: linear-gradient(180deg, #FFF9EF 0%, #F5EFE4 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-link {
+      display: block;
+      color: #2A2A2A;
+      text-decoration: none;
+      padding: 8px 0;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      position: relative;
+      width: fit-content;
+    }
+
+    .footer-link::after {
+      content: '';
+      position: absolute;
+      bottom: 6px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: #E61C72;
+      transition: width 0.3s ease;
+    }
+
+    .footer-link:hover {
+      color: #E61C72;
+      transform: translateX(4px);
+    }
+
+    .footer-link:hover::after {
+      width: 100%;
+    }
+
+    .social-icon {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background-color: #FFFFFF;
+      border: 3px solid #111111;
+      border-radius: 50%;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      box-shadow: 3px 3px 0px rgba(17, 17, 17, 0.15);
+    }
+
+    .social-icon:hover {
+      transform: translateY(-4px);
+      box-shadow: 5px 5px 0px rgba(230, 28, 114, 0.3);
+      background-color: #E61C72;
+    }
+
+    .social-icon:hover svg {
+      stroke: #F5EFE4;
+      fill: #F5EFE4;
+    }
+
+    .footer-cta-button {
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .footer-cta-button::before {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 0;
+      height: 0;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.3);
+      transform: translate(-50%, -50%);
+      transition: width 0.5s ease, height 0.5s ease;
+    }
+
+    .footer-cta-button:hover::before {
+      width: 300px;
+      height: 300px;
+    }
+
+    .footer-cta-button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+
+    .footer-cta-primary {
+      background-color: #E61C72;
+      color: #F5EFE4;
+      border: 3px solid #111111;
+      box-shadow: 4px 4px 0px rgba(17, 17, 17, 0.2);
+    }
+
+    .footer-cta-primary:hover {
+      background-color: #C51760;
+      box-shadow: 6px 6px 0px rgba(230, 28, 114, 0.3);
+    }
+
+    .footer-cta-secondary {
+      background-color: #E3C24A;
+      color: #111111;
+      border: 3px solid #111111;
+      box-shadow: 4px 4px 0px rgba(17, 17, 17, 0.2);
+    }
+
+    .footer-cta-secondary:hover {
+      background-color: #D4B03E;
+      box-shadow: 6px 6px 0px rgba(227, 194, 74, 0.3);
+    }
+
+    .decorative-divider {
+      position: relative;
+      width: 2px;
+      height: 100%;
+      background: linear-gradient(to bottom, transparent 0%, #E61C72 20%, #E3C24A 50%, #E61C72 80%, transparent 100%);
+      margin: 0 40px;
+    }
+
+    .decorative-divider::before {
+      content: '';
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 12px;
+      background-color: #E61C72;
+      border: 2px solid #111111;
+      border-radius: 50%;
+    }
+
+    .decorative-divider::after {
+      content: '';
+      position: absolute;
+      bottom: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 12px;
+      height: 12px;
+      background-color: #E3C24A;
+      border: 2px solid #111111;
+      border-radius: 50%;
+    }
+
+    @media (max-width: 1024px) {
+      .decorative-divider {
+        display: none;
+      }
+    }
+
+    .floating-lotus {
+      position: absolute;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .lotus-1 {
+      top: 10%;
+      left: 5%;
+      width: 80px;
+      height: 80px;
+    }
+
+    .lotus-2 {
+      top: 50%;
+      right: 8%;
+      width: 100px;
+      height: 100px;
+    }
+
+    .lotus-3 {
+      bottom: 15%;
+      left: 15%;
+      width: 70px;
+      height: 70px;
+    }
+
+    @media (max-width: 768px) {
+      .floating-lotus {
+        display: none;
+      }
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 10px 0;
+      color: #2A2A2A;
+      font-size: 15px;
+    }
+
+    .contact-icon {
+      width: 24px;
+      height: 24px;
+      flex-shrink: 0;
+    }
+
+    @keyframes gentleGlow {
+      0%, 100% {
+        box-shadow: 4px 4px 0px rgba(17, 17, 17, 0.2), 0 0 15px rgba(230, 28, 114, 0.2);
+      }
+      50% {
+        box-shadow: 4px 4px 0px rgba(17, 17, 17, 0.2), 0 0 25px rgba(230, 28, 114, 0.4);
+      }
+    }
+
+    .footer-cta-primary {
+      animation: gentleGlow 3s ease-in-out infinite;
+    }
+
+    @keyframes gentleGlowYellow {
+      0%, 100% {
+        box-shadow: 4px 4px 0px rgba(17, 17, 17, 0.2), 0 0 15px rgba(227, 194, 74, 0.2);
+      }
+      50% {
+        box-shadow: 4px 4px 0px rgba(17, 17, 17, 0.2), 0 0 25px rgba(227, 194, 74, 0.4);
+      }
+    }
+
+    .footer-cta-secondary {
+      animation: gentleGlowYellow 3s ease-in-out infinite;
+      animation-delay: 1.5s;
+    }
+
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+  <script src="/_sdk/data_sdk.js" type="text/javascript"></script>
+  <script src="/_sdk/element_sdk.js" type="text/javascript"></script>
+ <style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.relative{position:relative}.z-10{z-index:10}.mx-auto{margin-left:auto;margin-right:auto}.mb-12{margin-bottom:3rem}.mb-16{margin-bottom:4rem}.mb-2{margin-bottom:0.5rem}.mb-20{margin-bottom:5rem}.mb-24{margin-bottom:6rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.mt-20{margin-top:5rem}.mt-6{margin-top:1.5rem}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-full{height:100%}.w-full{width:100%}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-16{gap:4rem}.gap-3{gap:0.75rem}.gap-4{gap:1rem}.gap-6{gap:1.5rem}.gap-8{gap:2rem}.rounded-full{border-radius:9999px}.border-2{border-width:2px}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.text-center{text-align:center}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-base{font-size:1rem;line-height:1.5rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.font-bold{font-weight:700}.font-light{font-weight:300}.font-medium{font-weight:500}@media (min-width: 640px){.sm\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.sm\:flex-row{flex-direction:row}}@media (min-width: 768px){.md\:flex{display:flex}.md\:hidden{display:none}}@media (min-width: 1024px){.lg\:block{display:block}.lg\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.lg\:grid-cols-4{grid-template-columns:repeat(4, minmax(0, 1fr))}.lg\:gap-0{gap:0px}.lg\:pl-12{padding-left:3rem}.lg\:pr-12{padding-right:3rem}.lg\:text-left{text-align:left}}</style></head>
+ <body class="h-full font-body" style="background-color: #F5EFE4; color: #2A2A2A;"><!-- Navigation -->
+  <nav class="nav-wrapper scrolled">
+   <div class="main-content mx-auto flex items-center justify-between" style="max-width: 1400px;">
+    <div class="font-display text-2xl font-bold" style="color: #111111; letter-spacing: 0.1em;">
+     RANG
+    </div>
+    <div class="hidden md:flex items-center gap-8"><a href="#exhibitions" class="nav-link font-medium" style="color: #111111;">Exhibitions</a> <a href="#about" class="nav-link font-medium" style="color: #111111;">About</a> <a href="#cities" class="nav-link font-medium" style="color: #111111;">Cities</a> <a href="#exhibitors" class="nav-link font-medium" style="color: #111111;">For Exhibitors</a> <button id="nav-cta" class="cta-button px-6 py-2 rounded-full font-medium" style="background-color: #E61C72; color: #F5EFE4;"> Book a Stall </button>
+    </div><button id="hamburger-btn" class="md:hidden hamburger-menu" style="color: #111111;">
+     <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="3" y1="12" x2="21" y2="12"></line> <line x1="3" y1="6" x2="21" y2="6"></line> <line x1="3" y1="18" x2="21" y2="18"></line>
+     </svg></button>
+   </div>
+  </nav><!-- Mobile Menu Overlay -->
+  <div id="mobile-overlay" class="mobile-overlay"></div><!-- Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu"><button id="close-menu-btn" class="mobile-menu-close" style="color: #111111;">
+    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"></line> <line x1="6" y1="6" x2="18" y2="18"></line>
+    </svg></button>
+   <div class="font-display text-3xl font-bold mb-8" style="color: #111111; letter-spacing: 0.1em;">
+    RANG
+   </div>
+   <nav><a href="#exhibitions" class="mobile-nav-link">Exhibitions</a> <a href="#about" class="mobile-nav-link">About</a> <a href="#cities" class="mobile-nav-link">Cities</a> <a href="#exhibitors" class="mobile-nav-link">For Exhibitors</a>
+   </nav><button id="mobile-nav-cta" class="mobile-cta-button"> Book a Stall </button>
+  </div><!-- Hero Section -->
+  <section class="hero-wrapper flex items-center justify-center" style="height: 100vh; max-height: 100vh; padding-top: 80px; padding-bottom: 20px; overflow: hidden;">
+   <div class="hanging-thread thread-1"></div>
+   <div class="hanging-thread thread-2"></div>
+   <div class="hanging-thread thread-3"></div>
+   <div class="hanging-thread thread-4"></div>
+   <svg class="festive-garland" viewBox="0 0 500 100" fill="none"><path d="M0 50 Q125 30 250 50 T500 50" stroke="#111111" stroke-width="2" fill="none"></path> <circle cx="50" cy="45" r="12" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="125" cy="35" r="12" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="200" cy="48" r="12" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="250" cy="50" r="12" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="300" cy="48" r="12" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="375" cy="35" r="12" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="450" cy="45" r="12" fill="#E61C72" stroke="#111111" stroke-width="2"></circle>
+   </svg>
+   <svg class="fabric-banner banner-1" viewBox="0 0 100 250" fill="none"><rect x="10" y="0" width="80" height="240" fill="#E61C72" stroke="#111111" stroke-width="3"></rect> <line x1="30" y1="40" x2="70" y2="40" stroke="#E3C24A" stroke-width="4"></line> <line x1="30" y1="80" x2="70" y2="80" stroke="#E3C24A" stroke-width="4"></line> <line x1="30" y1="120" x2="70" y2="120" stroke="#E3C24A" stroke-width="4"></line> <circle cx="50" cy="180" r="15" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <path d="M15 235 L20 250 M30 235 L35 250 M45 235 L50 250 M60 235 L65 250 M75 235 L80 250" stroke="#111111" stroke-width="2"></path>
+   </svg>
+   <svg class="fabric-banner banner-2" viewBox="0 0 100 250" fill="none"><rect x="10" y="0" width="80" height="240" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect> <circle cx="50" cy="60" r="20" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="50" cy="140" r="20" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <rect x="35" y="180" width="30" height="30" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <path d="M15 235 L20 250 M30 235 L35 250 M45 235 L50 250 M60 235 L65 250 M75 235 L80 250" stroke="#111111" stroke-width="2"></path>
+   </svg>
+   <svg class="fabric-banner banner-3" viewBox="0 0 80 200" fill="none"><rect x="5" y="0" width="70" height="190" fill="#E61C72" stroke="#111111" stroke-width="3"></rect> <path d="M20 50 L40 70 L60 50" fill="#E3C24A" stroke="#111111" stroke-width="2"></path> <path d="M20 110 L40 130 L60 110" fill="#E3C24A" stroke="#111111" stroke-width="2"></path> <path d="M10 185 L15 200 M25 185 L30 200 M40 185 L45 200 M55 185 L60 200 M70 185 L75 200" stroke="#111111" stroke-width="2"></path>
+   </svg>
+   <svg class="illustrated-stall stall-large-left" viewBox="0 0 380 450" fill="none"><path d="M40 100 Q190 50 340 100 L340 120 L40 120 Z" fill="#E3C24A" stroke="#111111" stroke-width="4"></path> <path d="M60 120 Q75 135 90 120 Q105 135 120 120 Q135 135 150 120 Q165 135 180 120 Q195 135 210 120 Q225 135 240 120 Q255 135 270 120 Q285 135 300 120 Q315 135 330 120" fill="#E61C72" stroke="#111111" stroke-width="3"></path> <rect x="60" y="120" width="12" height="330" fill="#111111"></rect> <rect x="308" y="120" width="12" height="330" fill="#111111"></rect> <rect x="72" y="140" width="236" height="290" fill="#F5EFE4" stroke="#111111" stroke-width="4"></rect> <rect x="90" y="200" width="70" height="15" fill="#E61C72" stroke="#111111" stroke-width="3"></rect> <rect x="220" y="200" width="70" height="15" fill="#E61C72" stroke="#111111" stroke-width="3"></rect> <circle cx="125" cy="180" r="18" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <circle cx="255" cy="180" r="18" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <rect x="95" y="240" width="25" height="35" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="135" y="240" width="25" height="35" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <rect x="225" y="240" width="25" height="35" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="265" y="240" width="25" height="35" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <path d="M90 140 Q120 155 150 140" fill="none" stroke="#E61C72" stroke-width="4"></path> <path d="M230 140 Q260 155 290 140" fill="none" stroke="#E61C72" stroke-width="4"></path> <rect x="80" y="380" width="220" height="50" fill="#E3C24A" stroke="#111111" stroke-width="4"></rect> <rect x="85" y="375" width="210" height="8" fill="#E61C72" stroke="#111111" stroke-width="2"></rect>
+   </svg>
+   <svg class="illustrated-stall stall-large-right" viewBox="0 0 380 450" fill="none"><path d="M40 100 Q190 50 340 100 L340 120 L40 120 Z" fill="#E61C72" stroke="#111111" stroke-width="4"></path> <path d="M80 95 L75 120 M120 85 L115 120 M160 75 L155 120 M200 70 L195 120 M240 75 L235 120 M280 85 L275 120 M320 95 L315 120" stroke="#E3C24A" stroke-width="8"></path> <rect x="60" y="120" width="12" height="330" fill="#111111"></rect> <rect x="308" y="120" width="12" height="330" fill="#111111"></rect> <rect x="72" y="140" width="236" height="290" fill="#F5EFE4" stroke="#111111" stroke-width="4"></rect> <path d="M150 140 Q190 170 230 140" fill="none" stroke="#E3C24A" stroke-width="5"></path> <circle cx="190" cy="155" r="12" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <rect x="100" y="220" width="180" height="120" fill="#E3C24A" opacity="0.3" stroke="#111111" stroke-width="3"></rect> <circle cx="140" cy="260" r="22" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <circle cx="190" cy="250" r="25" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <circle cx="240" cy="260" r="22" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <rect x="125" y="300" width="30" height="25" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="175" y="295" width="30" height="30" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <rect x="225" y="300" width="30" height="25" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="80" y="380" width="220" height="50" fill="#E61C72" stroke="#111111" stroke-width="4"></rect> <circle cx="130" cy="405" r="15" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <circle cx="190" cy="405" r="15" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <circle cx="250" cy="405" r="15" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle>
+   </svg>
+   <svg class="illustrated-stall stall-medium" viewBox="0 0 280 320" fill="none"><path d="M30 80 Q140 40 250 80 L250 95 L30 95 Z" fill="#E61C72" stroke="#111111" stroke-width="4"></path> <path d="M40 95 Q55 105 70 95 Q85 105 100 95 Q115 105 130 95 Q145 105 160 95 Q175 105 190 95 Q205 105 220 95 Q235 105 250 95" fill="none" stroke="#E3C24A" stroke-width="4"></path> <rect x="45" y="95" width="10" height="225" fill="#111111"></rect> <rect x="225" y="95" width="10" height="225" fill="#111111"></rect> <rect x="55" y="110" width="170" height="200" fill="#F5EFE4" stroke="#111111" stroke-width="3"></rect> <path d="M70 110 Q90 125 110 110" fill="none" stroke="#E61C72" stroke-width="4"></path> <path d="M170 110 Q190 125 210 110" fill="none" stroke="#E61C72" stroke-width="4"></path> <rect x="75" y="150" width="40" height="50" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect> <rect x="165" y="150" width="40" height="50" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect> <circle cx="140" cy="235" r="25" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <rect x="60" y="280" width="160" height="30" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect>
+   </svg>
+   <svg class="textile-pattern pattern-1" viewBox="0 0 150 150" fill="none"><rect x="0" y="0" width="150" height="150" fill="#E61C72" opacity="0.2"></rect> <circle cx="37.5" cy="37.5" r="15" fill="none" stroke="#111111" stroke-width="3"></circle> <circle cx="112.5" cy="37.5" r="15" fill="none" stroke="#111111" stroke-width="3"></circle> <circle cx="37.5" cy="112.5" r="15" fill="none" stroke="#111111" stroke-width="3"></circle> <circle cx="112.5" cy="112.5" r="15" fill="none" stroke="#111111" stroke-width="3"></circle> <circle cx="75" cy="75" r="20" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <path d="M55 75 L95 75 M75 55 L75 95" stroke="#111111" stroke-width="3"></path>
+   </svg>
+   <svg class="textile-pattern pattern-2" viewBox="0 0 120 120" fill="none"><rect x="0" y="0" width="120" height="120" fill="#E3C24A" opacity="0.2"></rect> <path d="M60 10 L110 60 L60 110 L10 60 Z" fill="none" stroke="#111111" stroke-width="3"></path> <path d="M60 30 L90 60 L60 90 L30 60 Z" fill="#E61C72" stroke="#111111" stroke-width="3"></path> <circle cx="60" cy="60" r="12" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle>
+   </svg>
+   <svg class="textile-pattern pattern-3" viewBox="0 0 100 100" fill="none"><rect x="0" y="0" width="100" height="100" fill="#E61C72" opacity="0.15"></rect> <rect x="10" y="10" width="35" height="35" fill="none" stroke="#111111" stroke-width="2"></rect> <rect x="55" y="10" width="35" height="35" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <rect x="10" y="55" width="35" height="35" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <rect x="55" y="55" width="35" height="35" fill="none" stroke="#111111" stroke-width="2"></rect>
+   </svg>
+   <svg class="illustrated-arch arch-left" viewBox="0 0 160 180" fill="none"><path d="M20 180 L20 80 Q80 20 140 80 L140 180" fill="none" stroke="#111111" stroke-width="4"></path> <path d="M25 175 L25 80 Q80 25 135 80 L135 175" fill="#E61C72" opacity="0.3" stroke="#111111" stroke-width="2"></path> <circle cx="80" cy="50" r="18" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <path d="M50 70 L80 40 L110 70" fill="none" stroke="#E61C72" stroke-width="4"></path> <circle cx="30" cy="120" r="8" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="130" cy="120" r="8" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle>
+   </svg>
+   <svg class="illustrated-arch arch-right" viewBox="0 0 140 160" fill="none"><path d="M15 160 L15 70 Q70 15 125 70 L125 160" fill="none" stroke="#111111" stroke-width="4"></path> <path d="M20 155 L20 70 Q70 20 120 70 L120 155" fill="#E3C24A" opacity="0.3" stroke="#111111" stroke-width="2"></path> <rect x="60" y="35" width="20" height="20" fill="#E61C72" stroke="#111111" stroke-width="3" transform="rotate(45 70 45)"></rect> <circle cx="35" cy="100" r="8" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="105" cy="100" r="8" fill="#E61C72" stroke="#111111" stroke-width="2"></circle>
+   </svg>
+   <svg class="display-table table-left" viewBox="0 0 200 120" fill="none"><rect x="20" y="30" width="160" height="15" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect> <rect x="20" y="40" width="160" height="50" fill="#E61C72" opacity="0.3" stroke="#111111" stroke-width="3"></rect> <rect x="25" y="90" width="8" height="30" fill="#111111"></rect> <rect x="167" y="90" width="8" height="30" fill="#111111"></rect> <circle cx="60" cy="20" r="15" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <rect x="95" y="10" width="25" height="25" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect> <circle cx="145" cy="20" r="15" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <path d="M20 45 Q50 55 80 45 Q110 55 140 45 Q170 55 180 45" fill="none" stroke="#E3C24A" stroke-width="4"></path>
+   </svg>
+   <svg class="display-table table-right" viewBox="0 0 180 100" fill="none"><rect x="15" y="25" width="150" height="12" fill="#E61C72" stroke="#111111" stroke-width="3"></rect> <rect x="15" y="35" width="150" height="40" fill="#E3C24A" opacity="0.3" stroke="#111111" stroke-width="3"></rect> <rect x="20" y="75" width="8" height="25" fill="#111111"></rect> <rect x="152" y="75" width="8" height="25" fill="#111111"></rect> <rect x="35" y="8" width="20" height="22" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <circle cx="90" cy="15" r="12" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <rect x="125" y="8" width="20" height="22" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect>
+   </svg>
+   <svg class="illustrated-lotus lotus-large" viewBox="0 0 120 120" fill="none"><ellipse cx="60" cy="70" rx="35" ry="45" fill="#E61C72" stroke="#111111" stroke-width="3"></ellipse> <ellipse cx="35" cy="60" rx="25" ry="35" fill="#E61C72" stroke="#111111" stroke-width="3" transform="rotate(-30 35 60)"></ellipse> <ellipse cx="85" cy="60" rx="25" ry="35" fill="#E61C72" stroke="#111111" stroke-width="3" transform="rotate(30 85 60)"></ellipse> <ellipse cx="60" cy="65" rx="25" ry="32" fill="#E3C24A" stroke="#111111" stroke-width="3"></ellipse> <ellipse cx="45" cy="58" rx="18" ry="25" fill="#E3C24A" stroke="#111111" stroke-width="3" transform="rotate(-25 45 58)"></ellipse> <ellipse cx="75" cy="58" rx="18" ry="25" fill="#E3C24A" stroke="#111111" stroke-width="3" transform="rotate(25 75 58)"></ellipse> <circle cx="60" cy="60" r="15" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <circle cx="60" cy="60" r="8" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle>
+   </svg>
+   <svg class="illustrated-lotus lotus-small" viewBox="0 0 90 90" fill="none"><ellipse cx="45" cy="50" rx="25" ry="32" fill="#E3C24A" stroke="#111111" stroke-width="3"></ellipse> <ellipse cx="28" cy="45" rx="18" ry="25" fill="#E3C24A" stroke="#111111" stroke-width="3" transform="rotate(-35 28 45)"></ellipse> <ellipse cx="62" cy="45" rx="18" ry="25" fill="#E3C24A" stroke="#111111" stroke-width="3" transform="rotate(35 62 45)"></ellipse> <ellipse cx="45" cy="47" rx="18" ry="22" fill="#E61C72" stroke="#111111" stroke-width="2"></ellipse> <ellipse cx="35" cy="43" rx="12" ry="16" fill="#E61C72" stroke="#111111" stroke-width="2" transform="rotate(-25 35 43)"></ellipse> <ellipse cx="55" cy="43" rx="12" ry="16" fill="#E61C72" stroke="#111111" stroke-width="2" transform="rotate(25 55 43)"></ellipse> <circle cx="45" cy="45" r="10" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="45" cy="45" r="5" fill="#111111"></circle>
+   </svg>
+   <div class="relative z-10 text-center px-6" style="max-width: 1200px;">
+    <div class="flex justify-center mb-8" style="position: relative; z-index: 20;">
+     <svg class="lotus-svg" width="90" height="90" viewBox="0 0 100 100" fill="none"><ellipse cx="50" cy="55" rx="28" ry="38" fill="#E61C72" stroke="#111111" stroke-width="3"></ellipse> <ellipse cx="30" cy="50" rx="20" ry="30" fill="#E61C72" stroke="#111111" stroke-width="3" transform="rotate(-30 30 50)"></ellipse> <ellipse cx="70" cy="50" rx="20" ry="30" fill="#E61C72" stroke="#111111" stroke-width="3" transform="rotate(30 70 50)"></ellipse> <ellipse cx="50" cy="52" rx="20" ry="28" fill="#E3C24A" stroke="#111111" stroke-width="2"></ellipse> <ellipse cx="38" cy="48" rx="15" ry="22" fill="#E3C24A" stroke="#111111" stroke-width="2" transform="rotate(-25 38 48)"></ellipse> <ellipse cx="62" cy="48" rx="15" ry="22" fill="#E3C24A" stroke="#111111" stroke-width="2" transform="rotate(25 62 48)"></ellipse> <circle cx="50" cy="50" r="12" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <circle cx="50" cy="50" r="6" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle>
+     </svg>
+    </div>
+    <div style="position: relative; display: inline-block;">
+     <h1 id="brand-name" class="brand-title font-display font-bold mb-6" style="color: #111111; position: relative; z-index: 10;">RANG</h1>
+    </div>
+    <p id="tagline" class="tagline-text font-body mb-12" style="color: #2A2A2A; font-weight: 300;">A Celebration of Colours &amp; Lifestyle</p>
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16"><button id="cta-primary" class="cta-button px-6 py-3 rounded-full font-medium text-base" style="background-color: #E61C72; color: #F5EFE4;"> Explore Exhibitions </button> <button id="cta-secondary" class="cta-button-secondary px-6 py-3 rounded-full font-medium text-base border-2" style="border-color: #111111; color: #111111; background-color: transparent;"> Exhibit With Us </button>
+    </div>
+    <div class="flex justify-center gap-3 mb-8">
+     <div style="width: 8px; height: 8px; background-color: #E61C72; border-radius: 50%; opacity: 0.7;"></div>
+     <div style="width: 8px; height: 8px; background-color: #E3C24A; border-radius: 50%; opacity: 0.7;"></div>
+     <div style="width: 8px; height: 8px; background-color: #E61C72; border-radius: 50%; opacity: 0.7;"></div>
+     <div style="width: 8px; height: 8px; background-color: #E3C24A; border-radius: 50%; opacity: 0.7;"></div>
+     <div style="width: 8px; height: 8px; background-color: #E61C72; border-radius: 50%; opacity: 0.7;"></div>
+    </div>
+    <div class="scroll-indicator flex flex-col items-center" style="color: #2A2A2A; opacity: 0.5;"><span class="text-sm font-light mb-2">Scroll to explore</span>
+     <svg width="20" height="30" viewBox="0 0 20 30" fill="none"><path d="M10 5 L10 20 M10 20 L5 15 M10 20 L15 15" stroke="currentColor" stroke-width="2"></path>
+     </svg>
+    </div>
+   </div>
+  </section><!-- About RANG Section -->
+  <section id="about" class="about-section" style="padding: 100px 20px;">
+   <div class="mx-auto" style="max-width: 1400px;">
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+     <div>
+      <p id="about-label" class="font-medium mb-4" style="color: #E61C72; font-size: 18px; letter-spacing: 0.05em;">About RANG</p>
+      <h2 id="about-headline" class="font-display font-bold mb-6" style="color: #111111; font-size: clamp(2.5rem, 5vw, 3.5rem); line-height: 1.2;">India's Most Loved Lifestyle &amp; Fashion Exhibitions</h2>
+      <p id="about-description" class="font-body mb-8" style="color: #2A2A2A; font-size: 18px; line-height: 1.8; font-weight: 300;">RANG curates premium lifestyle, fashion, home décor, jewellery, and handcrafted brands across major Indian cities. Experience the finest collection of products from talented artisans and designers.</p><button id="learn-more-btn" class="cta-button px-8 py-3 rounded-full font-medium text-base" style="background-color: #E61C72; color: #F5EFE4;"> Learn More </button>
+     </div>
+     <div class="relative" style="min-height: 500px;">
+      <svg viewBox="0 0 600 500" fill="none" style="width: 100%; height: auto;"><rect x="50" y="320" width="500" height="20" fill="#E3C24A" stroke="#111111" stroke-width="4"></rect> <rect x="50" y="335" width="500" height="120" fill="#E61C72" opacity="0.2" stroke="#111111" stroke-width="4"></rect> <rect x="60" y="455" width="15" height="45" fill="#111111"></rect> <rect x="525" y="455" width="15" height="45" fill="#111111"></rect> <line x1="120" y1="50" x2="120" y2="320" stroke="#111111" stroke-width="3"></line> <rect x="90" y="120" width="60" height="180" fill="#E61C72" stroke="#111111" stroke-width="3" rx="8"></rect> <line x1="105" y1="160" x2="135" y2="160" stroke="#E3C24A" stroke-width="4"></line> <line x1="105" y1="200" x2="135" y2="200" stroke="#E3C24A" stroke-width="4"></line> <circle cx="120" cy="260" r="12" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <line x1="220" y1="50" x2="220" y2="320" stroke="#111111" stroke-width="3"></line> <rect x="190" y="100" width="60" height="200" fill="#E3C24A" stroke="#111111" stroke-width="3" rx="8"></rect> <circle cx="220" cy="160" r="15" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="220" cy="220" r="15" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <rect x="205" y="260" width="30" height="25" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="320" y="200" width="12" height="120" fill="#111111"></rect> <ellipse cx="326" cy="195" rx="40" ry="8" fill="#E3C24A" stroke="#111111" stroke-width="3"></ellipse> <circle cx="310" cy="230" r="10" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="342" cy="230" r="10" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="326" cy="265" r="12" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <path d="M300 290 Q326 280 352 290" fill="none" stroke="#E61C72" stroke-width="3"></path> <rect x="400" y="250" width="60" height="70" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect> <circle cx="430" cy="270" r="8" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <path d="M415 290 L430 305 L445 290" fill="none" stroke="#E61C72" stroke-width="3"></path> <circle cx="500" cy="270" r="30" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <circle cx="500" cy="270" r="20" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="500" cy="270" r="10" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <ellipse cx="100" cy="395" rx="35" ry="15" fill="#E61C72" stroke="#111111" stroke-width="3"></ellipse> <rect x="65" y="380" width="70" height="15" fill="#E61C72" stroke="#111111" stroke-width="3"></rect> <line x1="75" y1="380" x2="75" y2="395" stroke="#E3C24A" stroke-width="3"></line> <line x1="90" y1="380" x2="90" y2="395" stroke="#E3C24A" stroke-width="3"></line> <line x1="105" y1="380" x2="105" y2="395" stroke="#E3C24A" stroke-width="3"></line> <line x1="120" y1="380" x2="120" y2="395" stroke="#E3C24A" stroke-width="3"></line> <circle cx="280" cy="470" r="5" fill="#E61C72"></circle> <circle cx="300" cy="470" r="5" fill="#E3C24A"></circle> <circle cx="320" cy="470" r="5" fill="#E61C72"></circle> <circle cx="290" cy="485" r="5" fill="#E3C24A"></circle> <circle cx="310" cy="485" r="5" fill="#E61C72"></circle> <circle cx="300" cy="455" r="5" fill="#E3C24A"></circle> <path d="M0 30 Q150 10 300 30 Q450 10 600 30" stroke="#111111" stroke-width="3" fill="none"></path> <circle cx="100" cy="25" r="10" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="250" cy="25" r="10" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="400" cy="25" r="10" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="500" cy="25" r="10" fill="#E61C72" stroke="#111111" stroke-width="2"></circle>
+      </svg>
+     </div>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-20">
+     <div class="feature-card">
+      <div class="feature-card-number">
+       1
+      </div>
+      <div class="feature-icon-wrapper">
+       <svg class="feature-icon" viewBox="0 0 100 100" fill="none"><path d="M20 30 Q50 15 80 30 L80 40 L20 40 Z" fill="#FFF9EF" stroke="#111111" stroke-width="3"></path> <rect x="25" y="40" width="6" height="50" fill="#111111"></rect> <rect x="69" y="40" width="6" height="50" fill="#111111"></rect> <rect x="31" y="45" width="38" height="40" fill="#FFFFFF" stroke="#111111" stroke-width="3"></rect> <rect x="38" y="55" width="10" height="12" fill="#111111" stroke="#111111" stroke-width="2"></rect> <rect x="52" y="55" width="10" height="12" fill="#111111" stroke="#111111" stroke-width="2"></rect> <circle cx="43" cy="75" r="5" fill="#111111" stroke="#111111" stroke-width="2"></circle> <circle cx="57" cy="75" r="5" fill="#111111" stroke="#111111" stroke-width="2"></circle> <rect x="25" y="90" width="50" height="8" fill="#111111" stroke="#111111" stroke-width="3"></rect>
+       </svg>
+      </div>
+      <h3 id="feature-1-title" class="font-display font-bold mb-2" style="color: #111111; font-size: 20px;">Curated Brands</h3>
+      <p class="feature-card-description font-body">Handpicked designers and artisans showcasing premium products</p>
+     </div>
+     <div class="feature-card">
+      <div class="feature-card-number">
+       2
+      </div>
+      <div class="feature-icon-wrapper">
+       <svg class="feature-icon" viewBox="0 0 100 100" fill="none"><ellipse cx="50" cy="50" rx="35" ry="40" fill="#FFFFFF" opacity="0.5" stroke="#111111" stroke-width="3"></ellipse> <path d="M35 30 Q50 25 60 35 L65 50 Q60 70 50 75 Q40 70 35 50 Z" fill="#111111" opacity="0.15" stroke="#111111" stroke-width="3"></path> <circle cx="45" cy="35" r="6" fill="#111111" stroke="#111111" stroke-width="2"></circle> <circle cx="55" cy="45" r="6" fill="#111111" stroke="#111111" stroke-width="2"></circle> <circle cx="48" cy="55" r="6" fill="#111111" stroke="#111111" stroke-width="2"></circle> <circle cx="52" cy="68" r="6" fill="#111111" stroke="#111111" stroke-width="2"></circle> <line x1="45" y1="35" x2="55" y2="45" stroke="#111111" stroke-width="2" stroke-dasharray="2,2"></line> <line x1="55" y1="45" x2="48" y2="55" stroke="#111111" stroke-width="2" stroke-dasharray="2,2"></line> <line x1="48" y1="55" x2="52" y2="68" stroke="#111111" stroke-width="2" stroke-dasharray="2,2"></line>
+       </svg>
+      </div>
+      <h3 id="feature-2-title" class="font-display font-bold mb-2" style="color: #111111; font-size: 20px;">Across Major Cities</h3>
+      <p class="feature-card-description font-body">Regular exhibitions in Mumbai, Delhi, Bangalore, and more</p>
+     </div>
+     <div class="feature-card">
+      <div class="feature-card-number">
+       3
+      </div>
+      <div class="feature-icon-wrapper">
+       <svg class="feature-icon" viewBox="0 0 100 100" fill="none"><rect x="44" y="50" width="12" height="45" fill="#111111"></rect> <ellipse cx="50" cy="47" rx="30" ry="6" fill="#111111" stroke="#111111" stroke-width="3"></ellipse> <circle cx="35" cy="60" r="8" fill="#FFFFFF" stroke="#111111" stroke-width="2"></circle> <circle cx="50" cy="60" r="8" fill="#111111" stroke="#111111" stroke-width="2"></circle> <circle cx="65" cy="60" r="8" fill="#FFFFFF" stroke="#111111" stroke-width="2"></circle> <path d="M30 75 Q50 68 70 75" fill="none" stroke="#111111" stroke-width="3"></path> <circle cx="40" cy="73" r="4" fill="#111111" stroke="#111111" stroke-width="1"></circle> <circle cx="50" cy="70" r="4" fill="#FFFFFF" stroke="#111111" stroke-width="1"></circle> <circle cx="60" cy="73" r="4" fill="#111111" stroke="#111111" stroke-width="1"></circle> <ellipse cx="50" cy="95" rx="15" ry="4" fill="#111111" stroke="#111111" stroke-width="2"></ellipse>
+       </svg>
+      </div>
+      <h3 id="feature-3-title" class="font-display font-bold mb-2" style="color: #111111; font-size: 20px;">Premium Indian Lifestyle</h3>
+      <p class="feature-card-description font-body">Fashion, jewellery, home décor, and handcrafted treasures</p>
+     </div>
+     <div class="feature-card">
+      <div class="feature-card-number">
+       4
+      </div>
+      <div class="feature-icon-wrapper">
+       <svg class="feature-icon" viewBox="0 0 100 100" fill="none"><path d="M30 35 L35 70 L65 70 L70 35 Z" fill="#FFFFFF" stroke="#111111" stroke-width="3"></path> <path d="M25 35 L30 35 L35 70 M75 35 L70 35 L65 70" stroke="#111111" stroke-width="3"></path> <rect x="35" y="70" width="30" height="8" fill="#111111" stroke="#111111" stroke-width="2"></rect> <circle cx="42" cy="78" r="4" fill="#111111"></circle> <circle cx="58" cy="78" r="4" fill="#111111"></circle> <path d="M35 35 Q35 20 50 20 Q65 20 65 35" fill="none" stroke="#111111" stroke-width="3"></path> <circle cx="45" cy="45" r="5" fill="#111111" stroke="#111111" stroke-width="2"></circle> <circle cx="55" cy="45" r="5" fill="#111111" stroke="#111111" stroke-width="2"></circle> <path d="M43 55 Q50 60 57 55" fill="none" stroke="#111111" stroke-width="2"></path>
+       </svg>
+      </div>
+      <h3 id="feature-4-title" class="font-display font-bold mb-2" style="color: #111111; font-size: 20px;">Visitor Experience</h3>
+      <p class="feature-card-description font-body">Curated shopping experiences with live demonstrations</p>
+     </div>
+    </div>
+   </div>
+  </section><!-- RANG Across India Section --> <!-- Illustration -->
+  <!-- Text Content -->
+   <!-- RIGHT PANEL - FOR EXHIBITORS -->
+   <!-- RANG Across India Section -->
+  <section id="cities" class="cities-section" style="padding: 100px 20px; position: relative; overflow-x: hidden;">
+   <div class="mx-auto" style="max-width: 1600px;"><!-- Section Header -->
+    <div class="text-center mb-20">
+     <h2 id="cities-headline" class="font-display font-bold" style="color: #111111; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 12px;">RANG Across India</h2>
+     <p class="font-body" style="color: #2A2A2A; font-size: 18px; font-weight: 300;">Follow our illustrated journey through India's vibrant cities</p>
+    </div><!-- Horizontal Journey Container -->
+    <div style="position: relative; padding: 40px 0 180px 0; min-height: 550px;"><!-- Flowing Ribbon Path -->
+     <svg style="position: absolute; top: 180px; left: 0; width: 100%; height: 100px; z-index: 1;" viewBox="0 0 1400 100" preserveAspectRatio="none"><path d="M0 50 Q350 30 700 50 T1400 50" fill="none" stroke="#E61C72" stroke-width="6" stroke-dasharray="20,10"></path> <path d="M0 58 Q350 38 700 58 T1400 58" fill="none" stroke="#E3C24A" stroke-width="4" stroke-dasharray="15,8"></path>
+     </svg><!-- Carousel Container -->
+     <div class="carousel-container" style="min-height: 480px;"><!-- Previous Button --> <button id="carousel-prev" class="carousel-button carousel-button-prev" disabled="">
+       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="3"><path d="M15 18L9 12L15 6"></path>
+       </svg></button> <!-- Carousel Track -->
+      <div class="carousel-track" id="carousel-track" style="transform: translateX(0px);"><!-- Delhi Stall -->
+       <div class="carousel-slide city-stall" data-city="delhi" style="cursor: pointer; transition: transform 0.3s ease;">
+        <svg viewBox="0 0 200 250" fill="none" style="width: 100%; height: auto; filter: drop-shadow(4px 4px 0px rgba(17, 17, 17, 0.1));"><path d="M20 60 Q100 40 180 60 L180 75 L20 75 Z" fill="#E61C72" stroke="#111111" stroke-width="4"></path> <path d="M30 75 Q50 85 70 75 Q90 85 110 75 Q130 85 150 75 Q170 85 180 75" fill="none" stroke="#E3C24A" stroke-width="4"></path> <rect x="30" y="75" width="8" height="175" fill="#111111"></rect> <rect x="162" y="75" width="8" height="175" fill="#111111"></rect> <rect x="38" y="85" width="124" height="155" fill="#FFF9EF" stroke="#111111" stroke-width="4"></rect> <rect x="50" y="110" width="35" height="12" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect> <rect x="115" y="110" width="35" height="12" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect> <circle cx="67" cy="95" r="10" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <circle cx="133" cy="95" r="10" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <rect x="55" y="140" width="20" height="28" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="85" y="140" width="20" height="28" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <rect x="115" y="140" width="20" height="28" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <path d="M50 85 Q75 98 100 85" fill="none" stroke="#E61C72" stroke-width="4"></path> <path d="M100 85 Q125 98 150 85" fill="none" stroke="#E61C72" stroke-width="4"></path> <rect x="45" y="210" width="110" height="30" fill="#E3C24A" stroke="#111111" stroke-width="4"></rect> <text x="100" y="260" text-anchor="middle" fill="#111111" font-family="Playfair Display, serif" font-size="20" font-weight="700">
+          Delhi
+         </text>
+        </svg>
+       </div><!-- Mumbai Stall -->
+       <div class="carousel-slide city-stall" data-city="mumbai" style="cursor: pointer; transition: transform 0.3s ease;">
+        <svg viewBox="0 0 200 250" fill="none" style="width: 100%; height: auto; filter: drop-shadow(4px 4px 0px rgba(17, 17, 17, 0.1));"><path d="M20 60 Q100 40 180 60 L180 75 L20 75 Z" fill="#E3C24A" stroke="#111111" stroke-width="4"></path> <path d="M50 55 L45 75 M80 48 L75 75 M110 45 L105 75 M140 48 L135 75 M170 55 L165 75" stroke="#E61C72" stroke-width="6"></path> <rect x="30" y="75" width="8" height="175" fill="#111111"></rect> <rect x="162" y="75" width="8" height="175" fill="#111111"></rect> <rect x="38" y="85" width="124" height="155" fill="#FFF9EF" stroke="#111111" stroke-width="4"></rect> <path d="M75 85 Q100 105 125 85" fill="none" stroke="#E3C24A" stroke-width="5"></path> <circle cx="100" cy="95" r="8" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <rect x="55" y="130" width="90" height="70" fill="#E3C24A" opacity="0.3" stroke="#111111" stroke-width="3"></rect> <circle cx="75" cy="155" r="15" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <circle cx="100" cy="150" r="18" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <circle cx="125" cy="155" r="15" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <rect x="70" y="180" width="20" height="18" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="105" y="177" width="20" height="21" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <rect x="45" y="210" width="110" height="30" fill="#E61C72" stroke="#111111" stroke-width="4"></rect> <circle cx="75" cy="225" r="10" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <circle cx="100" cy="225" r="10" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <circle cx="125" cy="225" r="10" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <text x="100" y="260" text-anchor="middle" fill="#111111" font-family="Playfair Display, serif" font-size="20" font-weight="700">
+          Mumbai
+         </text>
+        </svg>
+       </div><!-- Jaipur Stall -->
+       <div class="carousel-slide city-stall" data-city="jaipur" style="cursor: pointer; transition: transform 0.3s ease;">
+        <svg viewBox="0 0 200 250" fill="none" style="width: 100%; height: auto; filter: drop-shadow(4px 4px 0px rgba(17, 17, 17, 0.1));"><path d="M20 60 Q100 40 180 60 L180 75 L20 75 Z" fill="#E61C72" stroke="#111111" stroke-width="4"></path> <path d="M35 75 Q55 88 75 75 Q95 88 115 75 Q135 88 155 75 Q175 88 180 75" fill="#E3C24A" stroke="#111111" stroke-width="3"></path> <rect x="30" y="75" width="8" height="175" fill="#111111"></rect> <rect x="162" y="75" width="8" height="175" fill="#111111"></rect> <rect x="38" y="85" width="124" height="155" fill="#FFF9EF" stroke="#111111" stroke-width="4"></rect> <path d="M55 85 Q75 100 95 85" fill="none" stroke="#E61C72" stroke-width="4"></path> <path d="M105 85 Q125 100 145 85" fill="none" stroke="#E61C72" stroke-width="4"></path> <rect x="55" y="115" width="30" height="35" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect> <rect x="115" y="115" width="30" height="35" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect> <circle cx="100" cy="170" r="20" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <circle cx="100" cy="170" r="10" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <rect x="45" y="200" width="110" height="25" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect> <text x="100" y="260" text-anchor="middle" fill="#111111" font-family="Playfair Display, serif" font-size="20" font-weight="700">
+          Jaipur
+         </text>
+        </svg>
+       </div><!-- Ahmedabad Stall -->
+       <div class="carousel-slide city-stall" data-city="ahmedabad" style="cursor: pointer; transition: transform 0.3s ease;">
+        <svg viewBox="0 0 200 250" fill="none" style="width: 100%; height: auto; filter: drop-shadow(4px 4px 0px rgba(17, 17, 17, 0.1));"><path d="M20 60 Q100 40 180 60 L180 75 L20 75 Z" fill="#E3C24A" stroke="#111111" stroke-width="4"></path> <rect x="25" y="65" width="150" height="8" fill="#E61C72" stroke="#111111" stroke-width="3"></rect> <rect x="30" y="75" width="8" height="175" fill="#111111"></rect> <rect x="162" y="75" width="8" height="175" fill="#111111"></rect> <rect x="38" y="85" width="124" height="155" fill="#FFF9EF" stroke="#111111" stroke-width="4"></rect> <rect x="55" y="95" width="90" height="60" fill="#E61C72" opacity="0.2" stroke="#111111" stroke-width="3"></rect> <circle cx="70" cy="115" r="12" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <circle cx="100" cy="110" r="15" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <circle cx="130" cy="115" r="12" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <rect x="60" y="140" width="18" height="15" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="90" y="135" width="20" height="20" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <rect x="122" y="140" width="18" height="15" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="50" y="180" width="100" height="45" fill="#E3C24A" opacity="0.3" stroke="#111111" stroke-width="3"></rect> <path d="M60 190 Q100 180 140 190" fill="none" stroke="#E61C72" stroke-width="4"></path> <path d="M65 205 Q100 198 135 205" fill="none" stroke="#E61C72" stroke-width="3"></path> <rect x="45" y="205" width="110" height="30" fill="#E61C72" stroke="#111111" stroke-width="4"></rect> <text x="100" y="260" text-anchor="middle" fill="#111111" font-family="Playfair Display, serif" font-size="18" font-weight="700">
+          Ahmedabad
+         </text>
+        </svg>
+       </div><!-- Bengaluru Stall -->
+       <div class="carousel-slide city-stall" data-city="bengaluru" style="cursor: pointer; transition: transform 0.3s ease;">
+        <svg viewBox="0 0 200 250" fill="none" style="width: 100%; height: auto; filter: drop-shadow(4px 4px 0px rgba(17, 17, 17, 0.1));"><path d="M20 60 Q100 40 180 60 L180 75 L20 75 Z" fill="#E61C72" stroke="#111111" stroke-width="4"></path> <circle cx="45" cy="65" r="8" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="75" cy="60" r="8" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="100" cy="58" r="8" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="125" cy="60" r="8" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="155" cy="65" r="8" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <rect x="30" y="75" width="8" height="175" fill="#111111"></rect> <rect x="162" y="75" width="8" height="175" fill="#111111"></rect> <rect x="38" y="85" width="124" height="155" fill="#FFF9EF" stroke="#111111" stroke-width="4"></rect> <rect x="50" y="95" width="28" height="38" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect> <rect x="86" y="90" width="28" height="43" fill="#E61C72" stroke="#111111" stroke-width="3"></rect> <rect x="122" y="95" width="28" height="38" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect> <ellipse cx="64" cy="160" rx="18" ry="25" fill="#E61C72" stroke="#111111" stroke-width="3"></ellipse> <ellipse cx="64" cy="160" rx="10" ry="15" fill="#E3C24A" stroke="#111111" stroke-width="2"></ellipse> <ellipse cx="136" cy="160" rx="18" ry="25" fill="#E61C72" stroke="#111111" stroke-width="3"></ellipse> <ellipse cx="136" cy="160" rx="10" ry="15" fill="#E3C24A" stroke="#111111" stroke-width="2"></ellipse> <circle cx="100" cy="175" r="18" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <rect x="45" y="205" width="110" height="30" fill="#E3C24A" stroke="#111111" stroke-width="4"></rect> <text x="100" y="260" text-anchor="middle" fill="#111111" font-family="Playfair Display, serif" font-size="19" font-weight="700">
+          Bengaluru
+         </text>
+        </svg>
+       </div><!-- Hyderabad Stall -->
+       <div class="carousel-slide city-stall" data-city="hyderabad" style="cursor: pointer; transition: transform 0.3s ease;">
+        <svg viewBox="0 0 200 250" fill="none" style="width: 100%; height: auto; filter: drop-shadow(4px 4px 0px rgba(17, 17, 17, 0.1));"><path d="M20 60 Q100 40 180 60 L180 75 L20 75 Z" fill="#E3C24A" stroke="#111111" stroke-width="4"></path> <path d="M30 60 L35 75 M60 52 L65 75 M100 48 L105 75 M140 52 L145 75 M170 60 L175 75" stroke="#E61C72" stroke-width="5"></path> <rect x="30" y="75" width="8" height="175" fill="#111111"></rect> <rect x="162" y="75" width="8" height="175" fill="#111111"></rect> <rect x="38" y="85" width="124" height="155" fill="#FFF9EF" stroke="#111111" stroke-width="4"></rect> <path d="M60 85 Q100 110 140 85" fill="none" stroke="#E61C72" stroke-width="5"></path> <circle cx="100" cy="105" r="10" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <rect x="60" y="125" width="25" height="25" fill="#E61C72" stroke="#111111" stroke-width="3" transform="rotate(45 72.5 137.5)"></rect> <rect x="105" y="125" width="25" height="25" fill="#E3C24A" stroke="#111111" stroke-width="3" transform="rotate(45 117.5 137.5)"></rect> <circle cx="65" cy="175" r="14" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <circle cx="100" cy="170" r="16" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <circle cx="135" cy="175" r="14" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <rect x="45" y="205" width="110" height="30" fill="#E61C72" stroke="#111111" stroke-width="4"></rect> <path d="M55 215 Q70 210 85 215 M115 215 Q130 210 145 215" stroke="#E3C24A" stroke-width="4"></path> <text x="100" y="260" text-anchor="middle" fill="#111111" font-family="Playfair Display, serif" font-size="18" font-weight="700">
+          Hyderabad
+         </text>
+        </svg>
+       </div>
+      </div><!-- Next Button --> <button id="carousel-next" class="carousel-button carousel-button-next">
+       <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="3"><path d="M9 18L15 12L9 6"></path>
+       </svg></button>
+     </div>
+    </div><!-- Modal Overlay -->
+    <div id="city-modal-overlay" class="city-modal-overlay"></div><!-- City Modals -->
+    <div id="city-modal-delhi" class="city-modal"><button class="city-modal-close" onclick="closeCityModal()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line> <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg></button> <span class="city-card-badge">Northern Capital</span>
+     <h3 class="city-card-title">Delhi</h3>
+     <p class="city-card-subtitle">Grand Fashion &amp; Lifestyle Exhibition</p>
+     <div class="city-card-illustration">
+      <svg viewBox="0 0 280 100" fill="none" style="width: 100%; height: auto;"><rect x="30" y="30" width="60" height="50" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="110" y="25" width="60" height="55" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <rect x="190" y="30" width="60" height="50" fill="#E61C72" stroke="#111111" stroke-width="2"></rect>
+      </svg>
+     </div>
+     <div class="city-card-detail">
+      <svg class="city-card-icon" viewBox="0 0 24 24" fill="none"><rect x="5" y="4" width="14" height="16" rx="2" fill="none" stroke="#E61C72" stroke-width="2"></rect> <line x1="9" y1="2" x2="9" y2="6" stroke="#E61C72" stroke-width="2"></line> <line x1="15" y1="2" x2="15" y2="6" stroke="#E61C72" stroke-width="2"></line> <line x1="5" y1="9" x2="19" y2="9" stroke="#E61C72" stroke-width="2"></line>
+      </svg><span><strong>15–17 March 2024</strong></span>
+     </div>
+     <div class="city-card-detail">
+      <svg class="city-card-icon" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="15" fill="none" stroke="#E61C72" stroke-width="2"></rect> <path d="M7 10 L7 17 M12 10 L12 17 M17 10 L17 17" stroke="#E61C72" stroke-width="2"></path> <path d="M3 6 L12 3 L21 6" stroke="#E61C72" stroke-width="2"></path>
+      </svg><span>130+ curated brands</span>
+     </div><button class="cta-button mt-6 w-full py-3 rounded-full font-medium" style="background-color: #E61C72; color: #F5EFE4;"> View Exhibition Details </button>
+    </div>
+    <div id="city-modal-mumbai" class="city-modal"><button class="city-modal-close" onclick="closeCityModal()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line> <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg></button> <span class="city-card-badge">Most Popular</span>
+     <h3 class="city-card-title">Mumbai</h3>
+     <p class="city-card-subtitle">Premium Fashion &amp; Lifestyle Expo</p>
+     <div class="city-card-illustration">
+      <svg viewBox="0 0 280 100" fill="none" style="width: 100%; height: auto;"><circle cx="70" cy="50" r="25" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="140" cy="45" r="28" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="210" cy="50" r="25" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle>
+      </svg>
+     </div>
+     <div class="city-card-detail">
+      <svg class="city-card-icon" viewBox="0 0 24 24" fill="none"><rect x="5" y="4" width="14" height="16" rx="2" fill="none" stroke="#E61C72" stroke-width="2"></rect> <line x1="9" y1="2" x2="9" y2="6" stroke="#E61C72" stroke-width="2"></line> <line x1="15" y1="2" x2="15" y2="6" stroke="#E61C72" stroke-width="2"></line> <line x1="5" y1="9" x2="19" y2="9" stroke="#E61C72" stroke-width="2"></line>
+      </svg><span><strong>22–24 March 2024</strong></span>
+     </div>
+     <div class="city-card-detail">
+      <svg class="city-card-icon" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="15" fill="none" stroke="#E61C72" stroke-width="2"></rect> <path d="M7 10 L7 17 M12 10 L12 17 M17 10 L17 17" stroke="#E61C72" stroke-width="2"></path> <path d="M3 6 L12 3 L21 6" stroke="#E61C72" stroke-width="2"></path>
+      </svg><span>150+ curated brands</span>
+     </div><button class="cta-button mt-6 w-full py-3 rounded-full font-medium" style="background-color: #E61C72; color: #F5EFE4;"> View Exhibition Details </button>
+    </div>
+    <div id="city-modal-jaipur" class="city-modal"><button class="city-modal-close" onclick="closeCityModal()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line> <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg></button> <span class="city-card-badge">Upcoming Event</span>
+     <h3 class="city-card-title">Jaipur</h3>
+     <p class="city-card-subtitle">Luxury Lifestyle &amp; Fashion Exhibition</p>
+     <div class="city-card-illustration">
+      <svg viewBox="0 0 280 100" fill="none" style="width: 100%; height: auto;"><ellipse cx="70" cy="50" rx="30" ry="40" fill="#E61C72" stroke="#111111" stroke-width="2"></ellipse> <ellipse cx="70" cy="50" rx="18" ry="25" fill="#E3C24A" stroke="#111111" stroke-width="2"></ellipse> <circle cx="140" cy="50" r="35" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="140" cy="50" r="20" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <ellipse cx="210" cy="50" rx="30" ry="40" fill="#E61C72" stroke="#111111" stroke-width="2"></ellipse> <ellipse cx="210" cy="50" rx="18" ry="25" fill="#E3C24A" stroke="#111111" stroke-width="2"></ellipse>
+      </svg>
+     </div>
+     <div class="city-card-detail">
+      <svg class="city-card-icon" viewBox="0 0 24 24" fill="none"><rect x="5" y="4" width="14" height="16" rx="2" fill="none" stroke="#E61C72" stroke-width="2"></rect> <line x1="9" y1="2" x2="9" y2="6" stroke="#E61C72" stroke-width="2"></line> <line x1="15" y1="2" x2="15" y2="6" stroke="#E61C72" stroke-width="2"></line> <line x1="5" y1="9" x2="19" y2="9" stroke="#E61C72" stroke-width="2"></line>
+      </svg><span><strong>5–7 April 2024</strong></span>
+     </div>
+     <div class="city-card-detail">
+      <svg class="city-card-icon" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="15" fill="none" stroke="#E61C72" stroke-width="2"></rect> <path d="M7 10 L7 17 M12 10 L12 17 M17 10 L17 17" stroke="#E61C72" stroke-width="2"></path> <path d="M3 6 L12 3 L21 6" stroke="#E61C72" stroke-width="2"></path>
+      </svg><span>100+ curated brands</span>
+     </div><button class="cta-button mt-6 w-full py-3 rounded-full font-medium" style="background-color: #E61C72; color: #F5EFE4;"> View Exhibition Details </button>
+    </div>
+    <div id="city-modal-ahmedabad" class="city-modal"><button class="city-modal-close" onclick="closeCityModal()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line> <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg></button> <span class="city-card-badge">Heritage City</span>
+     <h3 class="city-card-title">Ahmedabad</h3>
+     <p class="city-card-subtitle">Textiles &amp; Lifestyle Exhibition</p>
+     <div class="city-card-illustration">
+      <svg viewBox="0 0 280 100" fill="none" style="width: 100%; height: auto;"><rect x="40" y="20" width="200" height="60" fill="#E3C24A" opacity="0.3" stroke="#111111" stroke-width="2"></rect> <path d="M50 40 Q140 30 230 40" fill="none" stroke="#E61C72" stroke-width="4"></path> <path d="M50 60 Q140 50 230 60" fill="none" stroke="#E61C72" stroke-width="4"></path>
+      </svg>
+     </div>
+     <div class="city-card-detail">
+      <svg class="city-card-icon" viewBox="0 0 24 24" fill="none"><rect x="5" y="4" width="14" height="16" rx="2" fill="none" stroke="#E61C72" stroke-width="2"></rect> <line x1="9" y1="2" x2="9" y2="6" stroke="#E61C72" stroke-width="2"></line> <line x1="15" y1="2" x2="15" y2="6" stroke="#E61C72" stroke-width="2"></line> <line x1="5" y1="9" x2="19" y2="9" stroke="#E61C72" stroke-width="2"></line>
+      </svg><span><strong>12–14 April 2024</strong></span>
+     </div>
+     <div class="city-card-detail">
+      <svg class="city-card-icon" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="15" fill="none" stroke="#E61C72" stroke-width="2"></rect> <path d="M7 10 L7 17 M12 10 L12 17 M17 10 L17 17" stroke="#E61C72" stroke-width="2"></path> <path d="M3 6 L12 3 L21 6" stroke="#E61C72" stroke-width="2"></path>
+      </svg><span>110+ curated brands</span>
+     </div><button class="cta-button mt-6 w-full py-3 rounded-full font-medium" style="background-color: #E61C72; color: #F5EFE4;"> View Exhibition Details </button>
+    </div>
+    <div id="city-modal-bengaluru" class="city-modal"><button class="city-modal-close" onclick="closeCityModal()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line> <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg></button> <span class="city-card-badge">Coming Soon</span>
+     <h3 class="city-card-title">Bengaluru</h3>
+     <p class="city-card-subtitle">Handcrafted &amp; Designer Exhibition</p>
+     <div class="city-card-illustration">
+      <svg viewBox="0 0 280 100" fill="none" style="width: 100%; height: auto;"><ellipse cx="70" cy="50" rx="30" ry="40" fill="#E61C72" stroke="#111111" stroke-width="2"></ellipse> <ellipse cx="70" cy="50" rx="18" ry="25" fill="#E3C24A" stroke="#111111" stroke-width="2"></ellipse> <ellipse cx="210" cy="50" rx="30" ry="40" fill="#E61C72" stroke="#111111" stroke-width="2"></ellipse> <ellipse cx="210" cy="50" rx="18" ry="25" fill="#E3C24A" stroke="#111111" stroke-width="2"></ellipse> <rect x="110" y="20" width="60" height="60" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <circle cx="140" cy="50" r="20" fill="#E61C72" stroke="#111111" stroke-width="2"></circle>
+      </svg>
+     </div>
+     <div class="city-card-detail">
+      <svg class="city-card-icon" viewBox="0 0 24 24" fill="none"><rect x="5" y="4" width="14" height="16" rx="2" fill="none" stroke="#E61C72" stroke-width="2"></rect> <line x1="9" y1="2" x2="9" y2="6" stroke="#E61C72" stroke-width="2"></line> <line x1="15" y1="2" x2="15" y2="6" stroke="#E61C72" stroke-width="2"></line> <line x1="5" y1="9" x2="19" y2="9" stroke="#E61C72" stroke-width="2"></line>
+      </svg><span><strong>20–22 April 2024</strong></span>
+     </div>
+     <div class="city-card-detail">
+      <svg class="city-card-icon" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="15" fill="none" stroke="#E61C72" stroke-width="2"></rect> <path d="M7 10 L7 17 M12 10 L12 17 M17 10 L17 17" stroke="#E61C72" stroke-width="2"></path> <path d="M3 6 L12 3 L21 6" stroke="#E61C72" stroke-width="2"></path>
+      </svg><span>120+ curated brands</span>
+     </div><button class="cta-button mt-6 w-full py-3 rounded-full font-medium" style="background-color: #E61C72; color: #F5EFE4;"> View Exhibition Details </button>
+    </div>
+    <div id="city-modal-hyderabad" class="city-modal"><button class="city-modal-close" onclick="closeCityModal()">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#111111" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"></line> <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg></button> <span class="city-card-badge">Southern Gem</span>
+     <h3 class="city-card-title">Hyderabad</h3>
+     <p class="city-card-subtitle">Royal Lifestyle &amp; Fashion Expo</p>
+     <div class="city-card-illustration">
+      <svg viewBox="0 0 280 100" fill="none" style="width: 100%; height: auto;"><rect x="50" y="25" width="50" height="50" fill="#E61C72" stroke="#111111" stroke-width="3" transform="rotate(45 75 50)"></rect> <rect x="130" y="25" width="50" height="50" fill="#E3C24A" stroke="#111111" stroke-width="3" transform="rotate(45 155 50)"></rect> <circle cx="75" cy="50" r="18" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="155" cy="50" r="18" fill="#E61C72" stroke="#111111" stroke-width="2"></circle>
+      </svg>
+     </div>
+     <div class="city-card-detail">
+      <svg class="city-card-icon" viewBox="0 0 24 24" fill="none"><rect x="5" y="4" width="14" height="16" rx="2" fill="none" stroke="#E61C72" stroke-width="2"></rect> <line x1="9" y1="2" x2="9" y2="6" stroke="#E61C72" stroke-width="2"></line> <line x1="15" y1="2" x2="15" y2="6" stroke="#E61C72" stroke-width="2"></line> <line x1="5" y1="9" x2="19" y2="9" stroke="#E61C72" stroke-width="2"></line>
+      </svg><span><strong>28–30 April 2024</strong></span>
+     </div>
+     <div class="city-card-detail">
+      <svg class="city-card-icon" viewBox="0 0 24 24" fill="none"><rect x="3" y="6" width="18" height="15" fill="none" stroke="#E61C72" stroke-width="2"></rect> <path d="M7 10 L7 17 M12 10 L12 17 M17 10 L17 17" stroke="#E61C72" stroke-width="2"></path> <path d="M3 6 L12 3 L21 6" stroke="#E61C72" stroke-width="2"></path>
+      </svg><span>125+ curated brands</span>
+     </div><button class="cta-button mt-6 w-full py-3 rounded-full font-medium" style="background-color: #E61C72; color: #F5EFE4;"> View Exhibition Details </button>
+    </div>
+   </div>
+  </section><!-- For Visitors & Exhibitors Section -->
+  <section id="dual-path" class="dual-path-section" style="padding: 100px 20px; position: relative; overflow: hidden; background-color: #FFF9EF;">
+   <div class="mx-auto" style="max-width: 1400px;"><!-- Section Header -->
+    <div class="text-center mb-16">
+     <h2 id="dual-path-headline" class="font-display font-bold" style="color: #111111; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 12px;">Experience RANG Your Way</h2>
+     <p class="font-body" style="color: #2A2A2A; font-size: 18px; font-weight: 300;">Choose your journey</p>
+    </div><!-- Dual Panel Container -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-0 relative"><!-- Fabric Divider (Desktop) -->
+     <div class="hidden lg:block" style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 100%; z-index: 10;">
+      <svg viewBox="0 0 80 800" fill="none" style="width: 100%; height: 100%;"><path d="M40 0 Q30 200 40 400 Q50 600 40 800" stroke="url(#gradient1)" stroke-width="8" fill="none"></path> <path d="M40 0 Q50 200 40 400 Q30 600 40 800" stroke="url(#gradient2)" stroke-width="6" fill="none" opacity="0.7"></path> <circle cx="40" cy="100" r="10" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="40" cy="250" r="10" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="40" cy="400" r="10" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="40" cy="550" r="10" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="40" cy="700" r="10" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <defs>
+        <linearGradient id="gradient1" x1="0%" y1="0%" x2="0%" y2="100%">
+         <stop offset="0%" style="stop-color:#E61C72;stop-opacity:1"></stop>
+         <stop offset="50%" style="stop-color:#E3C24A;stop-opacity:1"></stop>
+         <stop offset="100%" style="stop-color:#E61C72;stop-opacity:1"></stop>
+        </linearGradient>
+        <linearGradient id="gradient2" x1="0%" y1="0%" x2="0%" y2="100%">
+         <stop offset="0%" style="stop-color:#E3C24A;stop-opacity:1"></stop>
+         <stop offset="50%" style="stop-color:#E61C72;stop-opacity:1"></stop>
+         <stop offset="100%" style="stop-color:#E3C24A;stop-opacity:1"></stop>
+        </linearGradient>
+       </defs>
+      </svg>
+     </div><!-- LEFT PANEL - FOR VISITORS -->
+     <div class="dual-panel visitor-panel lg:pr-12">
+      <div class="dual-panel-content"><!-- Illustration -->
+       <div class="dual-panel-illustration mb-8">
+        <svg viewBox="0 0 600 400" fill="none" style="width: 100%; height: auto;"><!-- Background festive elements --> <path d="M0 50 Q150 40 300 50 Q450 40 600 50" stroke="#111111" stroke-width="3" fill="none"></path> <circle cx="100" cy="45" r="8" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="250" cy="45" r="8" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="400" cy="45" r="8" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="500" cy="45" r="8" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <!-- Left stall --> <path d="M50 120 Q120 100 190 120 L190 135 L50 135 Z" fill="#E3C24A" stroke="#111111" stroke-width="3"></path> <rect x="55" y="135" width="6" height="180" fill="#111111"></rect> <rect x="179" y="135" width="6" height="180" fill="#111111"></rect> <rect x="61" y="145" width="118" height="160" fill="#FFFFFF" stroke="#111111" stroke-width="3"></rect> <rect x="75" y="165" width="30" height="40" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="120" y="165" width="30" height="40" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <circle cx="90" cy="235" r="15" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="135" cy="235" r="15" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <rect x="70" y="270" width="80" height="20" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect> <!-- Right stall --> <path d="M410 120 Q480 100 550 120 L550 135 L410 135 Z" fill="#E61C72" stroke="#111111" stroke-width="3"></path> <rect x="415" y="135" width="6" height="180" fill="#111111"></rect> <rect x="539" y="135" width="6" height="180" fill="#111111"></rect> <rect x="421" y="145" width="118" height="160" fill="#FFFFFF" stroke="#111111" stroke-width="3"></rect> <path d="M435 145 Q465 160 495 145" fill="none" stroke="#E3C24A" stroke-width="4"></path> <rect x="440" y="175" width="25" height="35" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <rect x="495" y="175" width="25" height="35" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <circle cx="480" cy="245" r="20" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <rect x="430" y="270" width="90" height="20" fill="#E61C72" stroke="#111111" stroke-width="3"></rect> <!-- Visitor 1 - Woman browsing (left) --> <ellipse cx="240" cy="315" rx="15" ry="5" fill="#111111" opacity="0.2"></ellipse> <rect x="230" y="265" width="20" height="50" fill="#E61C72" stroke="#111111" stroke-width="3" rx="3"></rect> <circle cx="240" cy="250" r="12" fill="#F5EFE4" stroke="#111111" stroke-width="3"></circle> <circle cx="237" cy="248" r="2" fill="#111111"></circle> <circle cx="243" cy="248" r="2" fill="#111111"></circle> <path d="M238 253 Q240 255 242 253" fill="none" stroke="#111111" stroke-width="1.5"></path> <path d="M230 245 Q235 240 240 245" fill="#111111" stroke="#111111" stroke-width="2"></path> <rect x="225" y="265" width="8" height="25" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="242" y="265" width="8" height="25" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="232" y="310" width="6" height="12" fill="#111111" stroke="#111111" stroke-width="2"></rect> <rect x="242" y="310" width="6" height="12" fill="#111111" stroke="#111111" stroke-width="2"></rect> <!-- Shopping bag --> <rect x="252" y="280" width="18" height="22" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <path d="M256 280 Q260 275 264 280" fill="none" stroke="#111111" stroke-width="2"></path> <!-- Visitor 2 - Man examining products (center) --> <ellipse cx="320" cy="315" rx="15" ry="5" fill="#111111" opacity="0.2"></ellipse> <rect x="310" y="270" width="20" height="45" fill="#E3C24A" stroke="#111111" stroke-width="3" rx="3"></rect> <circle cx="320" cy="255" r="13" fill="#F5EFE4" stroke="#111111" stroke-width="3"></circle> <circle cx="317" cy="253" r="2" fill="#111111"></circle> <circle cx="323" cy="253" r="2" fill="#111111"></circle> <path d="M318 258 Q320 260 322 258" fill="none" stroke="#111111" stroke-width="1.5"></path> <rect x="305" y="270" width="8" height="28" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <rect x="327" y="270" width="8" height="28" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <rect x="312" y="312" width="6" height="10" fill="#111111" stroke="#111111" stroke-width="2"></rect> <rect x="322" y="312" width="6" height="10" fill="#111111" stroke="#111111" stroke-width="2"></rect> <!-- Hand pointing --> <circle cx="298" cy="285" r="4" fill="#F5EFE4" stroke="#111111" stroke-width="2"></circle> <rect x="290" y="285" width="8" height="3" fill="#F5EFE4" stroke="#111111" stroke-width="1.5"></rect> <!-- Visitor 3 - Woman with shopping bags (right) --> <ellipse cx="370" cy="315" rx="15" ry="5" fill="#111111" opacity="0.2"></ellipse> <rect x="360" y="265" width="20" height="50" fill="#E61C72" stroke="#111111" stroke-width="3" rx="3"></rect> <circle cx="370" cy="250" r="12" fill="#F5EFE4" stroke="#111111" stroke-width="3"></circle> <circle cx="367" cy="248" r="2" fill="#111111"></circle> <circle cx="373" cy="248" r="2" fill="#111111"></circle> <path d="M368 253 Q370 256 372 253" fill="none" stroke="#111111" stroke-width="1.5"></path> <path d="M360 245 Q365 238 370 245" fill="#111111" stroke="#111111" stroke-width="2"></path> <rect x="355" y="265" width="8" height="25" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="372" y="265" width="8" height="25" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="362" y="310" width="6" height="12" fill="#111111" stroke="#111111" stroke-width="2"></rect> <rect x="372" y="310" width="6" height="12" fill="#111111" stroke="#111111" stroke-width="2"></rect> <!-- Shopping bags --> <rect x="345" y="280" width="14" height="18" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <path d="M348 280 Q352 276 356 280" fill="none" stroke="#111111" stroke-width="2"></path> <rect x="382" y="285" width="14" height="18" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <path d="M385 285 Q389 281 393 285" fill="none" stroke="#111111" stroke-width="2"></path> <!-- Decorative fabric swatches floating --> <rect x="200" y="90" width="35" height="25" fill="#E61C72" opacity="0.3" stroke="#111111" stroke-width="2" rx="3"></rect> <rect x="350" y="85" width="30" height="30" fill="#E3C24A" opacity="0.3" stroke="#111111" stroke-width="2" rx="3"></rect> <circle cx="280" cy="100" r="15" fill="#E61C72" opacity="0.2" stroke="#111111" stroke-width="2"></circle>
+        </svg>
+       </div><!-- Text Content -->
+       <div class="text-center lg:text-left px-4">
+        <h3 class="font-display font-bold mb-4" style="color: #111111; font-size: clamp(1.8rem, 3vw, 2.5rem);">For Visitors</h3>
+        <p class="font-body mb-6" style="color: #2A2A2A; font-size: 16px; line-height: 1.7; font-weight: 300;">Discover India's finest fashion, lifestyle, home décor, and handcrafted brands. Experience curated exhibitions featuring premium designers and artisans across major cities.</p><button class="dual-panel-cta visitor-cta px-8 py-3 rounded-full font-medium text-base" style="background-color: #E61C72; color: #F5EFE4; border: none; cursor: pointer;"> Explore Exhibitions </button>
+       </div>
+      </div>
+     </div><!-- RIGHT PANEL - FOR EXHIBITORS -->
+     <div class="dual-panel exhibitor-panel lg:pl-12">
+      <div class="dual-panel-content"><!-- Illustration -->
+       <div class="dual-panel-illustration mb-8">
+        <svg viewBox="0 0 600 400" fill="none" style="width: 100%; height: auto;"><!-- Background festive elements --> <path d="M0 50 Q150 40 300 50 Q450 40 600 50" stroke="#111111" stroke-width="3" fill="none"></path> <circle cx="150" cy="45" r="8" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="300" cy="45" r="8" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="450" cy="45" r="8" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <!-- Central premium stall --> <path d="M200 100 Q300 70 400 100 L400 120 L200 120 Z" fill="#E3C24A" stroke="#111111" stroke-width="4"></path> <path d="M210 120 Q240 135 270 120 Q300 135 330 120 Q360 135 390 120" fill="none" stroke="#E61C72" stroke-width="4"></path> <rect x="210" y="120" width="10" height="200" fill="#111111"></rect> <rect x="380" y="120" width="10" height="200" fill="#111111"></rect> <rect x="220" y="135" width="160" height="175" fill="#FFFFFF" stroke="#111111" stroke-width="4"></rect> <!-- Premium display table --> <rect x="240" y="250" width="120" height="15" fill="#E61C72" stroke="#111111" stroke-width="3"></rect> <rect x="240" y="260" width="120" height="50" fill="#E3C24A" opacity="0.3" stroke="#111111" stroke-width="3"></rect> <rect x="248" y="310" width="8" height="10" fill="#111111"></rect> <rect x="344" y="310" width="8" height="10" fill="#111111"></rect> <!-- Products on display --> <rect x="255" y="230" width="25" height="30" fill="#E61C72" stroke="#111111" stroke-width="3"></rect> <circle cx="300" cy="235" r="15" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <rect x="320" y="225" width="30" height="35" fill="#E61C72" stroke="#111111" stroke-width="3"></rect> <circle cx="267" cy="275" r="10" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="300" cy="270" r="12" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="333" cy="275" r="10" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <!-- Hanging display items --> <line x1="245" y1="155" x2="245" y2="195" stroke="#111111" stroke-width="2"></line> <rect x="235" y="195" width="20" height="28" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <line x1="280" y1="150" x2="280" y2="190" stroke="#111111" stroke-width="2"></line> <rect x="270" y="190" width="20" height="30" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <line x1="320" y1="150" x2="320" y2="190" stroke="#111111" stroke-width="2"></line> <rect x="310" y="190" width="20" height="30" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <line x1="355" y1="155" x2="355" y2="195" stroke="#111111" stroke-width="2"></line> <rect x="345" y="195" width="20" height="28" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <!-- Exhibitor - Owner behind stall --> <ellipse cx="300" cy="320" rx="18" ry="5" fill="#111111" opacity="0.2"></ellipse> <rect x="285" y="265" width="30" height="55" fill="#E61C72" stroke="#111111" stroke-width="3" rx="3"></rect> <circle cx="300" cy="245" r="15" fill="#F5EFE4" stroke="#111111" stroke-width="3"></circle> <circle cx="296" cy="243" r="2" fill="#111111"></circle> <circle cx="304" cy="243" r="2" fill="#111111"></circle> <path d="M297 249 Q300 252 303 249" fill="none" stroke="#111111" stroke-width="2"></path> <path d="M285 238 Q295 230 305 238" fill="#111111" stroke="#111111" stroke-width="2"></path> <!-- Arms gesturing --> <rect x="270" y="275" width="10" height="30" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <circle cx="268" cy="305" r="5" fill="#F5EFE4" stroke="#111111" stroke-width="2"></circle> <rect x="310" y="275" width="10" height="30" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <circle cx="322" cy="305" r="5" fill="#F5EFE4" stroke="#111111" stroke-width="2"></circle> <!-- Customer 1 - Left side --> <ellipse cx="140" cy="315" rx="15" ry="5" fill="#111111" opacity="0.2"></ellipse> <rect x="130" y="270" width="20" height="45" fill="#E3C24A" stroke="#111111" stroke-width="3" rx="3"></rect> <circle cx="140" cy="255" r="12" fill="#F5EFE4" stroke="#111111" stroke-width="3"></circle> <circle cx="137" cy="253" r="2" fill="#111111"></circle> <circle cx="143" cy="253" r="2" fill="#111111"></circle> <path d="M138 258 Q140 260 142 258" fill="none" stroke="#111111" stroke-width="1.5"></path> <rect x="125" y="270" width="8" height="25" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <rect x="142" y="270" width="8" height="25" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <rect x="132" y="312" width="6" height="10" fill="#111111" stroke="#111111" stroke-width="2"></rect> <rect x="142" y="312" width="6" height="10" fill="#111111" stroke="#111111" stroke-width="2"></rect> <!-- Customer 2 - Right side --> <ellipse cx="460" cy="315" rx="15" ry="5" fill="#111111" opacity="0.2"></ellipse> <rect x="450" y="265" width="20" height="50" fill="#E61C72" stroke="#111111" stroke-width="3" rx="3"></rect> <circle cx="460" cy="250" r="12" fill="#F5EFE4" stroke="#111111" stroke-width="3"></circle> <circle cx="457" cy="248" r="2" fill="#111111"></circle> <circle cx="463" cy="248" r="2" fill="#111111"></circle> <path d="M458 253 Q460 256 462 253" fill="none" stroke="#111111" stroke-width="1.5"></path> <path d="M450 245 Q455 240 460 245" fill="#111111" stroke="#111111" stroke-width="2"></path> <rect x="445" y="265" width="8" height="25" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="462" y="265" width="8" height="25" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="452" y="310" width="6" height="12" fill="#111111" stroke="#111111" stroke-width="2"></rect> <rect x="462" y="310" width="6" height="12" fill="#111111" stroke="#111111" stroke-width="2"></rect> <!-- Shopping bag --> <rect x="472" y="280" width="16" height="20" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <path d="M476 280 Q480 276 484 280" fill="none" stroke="#111111" stroke-width="2"></path> <!-- Decorative award/quality badges --> <circle cx="480" cy="110" r="25" fill="#E3C24A" opacity="0.3" stroke="#111111" stroke-width="3"></circle> <path d="M480 95 L485 105 L495 107 L487 115 L489 125 L480 120 L471 125 L473 115 L465 107 L475 105 Z" fill="#E61C72" stroke="#111111" stroke-width="2"></path> <!-- Price tags --> <rect x="100" y="180" width="30" height="20" fill="#FFFFFF" stroke="#111111" stroke-width="2" rx="3"></rect> <line x1="105" y1="187" x2="125" y2="187" stroke="#111111" stroke-width="2"></line> <line x1="105" y1="193" x2="120" y2="193" stroke="#111111" stroke-width="1.5"></line> <rect x="510" y="200" width="30" height="20" fill="#FFFFFF" stroke="#111111" stroke-width="2" rx="3"></rect> <line x1="515" y1="207" x2="535" y2="207" stroke="#111111" stroke-width="2"></line> <line x1="515" y1="213" x2="530" y2="213" stroke="#111111" stroke-width="1.5"></line>
+        </svg>
+       </div><!-- Text Content -->
+       <div class="text-center lg:text-left px-4">
+        <h3 class="font-display font-bold mb-4" style="color: #111111; font-size: clamp(1.8rem, 3vw, 2.5rem);">For Exhibitors</h3>
+        <p class="font-body mb-6" style="color: #2A2A2A; font-size: 16px; line-height: 1.7; font-weight: 300;">Showcase your brand to India's most discerning lifestyle audience. Join premium exhibitions in major cities and connect with thousands of engaged shoppers.</p><button class="dual-panel-cta exhibitor-cta px-8 py-3 rounded-full font-medium text-base" style="background-color: #E3C24A; color: #111111; border: 2px solid #111111; cursor: pointer;"> Exhibit With RANG </button>
+       </div>
+      </div>
+     </div>
+    </div>
+   </div>
+  </section>
+  <section class="w-full" style="padding: 120px 20px; position: relative; background-color: #FFF9EF;">
+    <div class="mx-auto" style="max-width: 1400px;"><!-- Section Header -->
+     <div class="text-center mb-24">
+      <h2 id="section-heading" class="font-display font-bold" style="color: #111111; font-size: clamp(2.5rem, 5vw, 4rem); line-height: 1.2; margin-bottom: 12px;">The RANG Energy</h2>
+      <p id="section-subtext" class="font-body" style="color: #2A2A2A; font-size: 18px; font-weight: 400;">Real people. Real brands. Real buzz.</p>
+     </div><!-- Illustrated Collage Container -->
+     <div style="position: relative; min-height: 750px; margin-bottom: 60px;"><!-- Collage Frame 1 - Crowded Exhibition (center-left) -->
+      <div class="collage-frame" style="top: 100px; left: 8%; width: 420px; height: 280px; transform: rotate(-3deg); z-index: 8;">
+       <svg viewBox="0 0 420 280" fill="none" style="width: 100%; height: 100%;"><!-- Canopy --> <path d="M10 30 Q210 10 410 30 L410 50 L10 50 Z" fill="#E3C24A" stroke="#111111" stroke-width="4"></path> <path d="M20 50 Q50 65 80 50 Q110 65 140 50 Q170 65 200 50 Q230 65 260 50 Q290 65 320 50 Q350 65 380 50 Q410 65 410 50" fill="none" stroke="#E61C72" stroke-width="4"></path> <!-- Stall structure --> <rect x="15" y="50" width="10" height="230" fill="#111111"></rect> <rect x="395" y="50" width="10" height="230" fill="#111111"></rect> <rect x="25" y="60" width="370" height="205" fill="#FFF5E8" stroke="#111111" stroke-width="4"></rect> <!-- Products displayed --> <rect x="50" y="85" width="70" height="90" fill="#E61C72" opacity="0.4" stroke="#111111" stroke-width="3"></rect> <rect x="140" y="85" width="70" height="90" fill="#E3C24A" opacity="0.4" stroke="#111111" stroke-width="3"></rect> <rect x="230" y="85" width="70" height="90" fill="#E61C72" opacity="0.4" stroke="#111111" stroke-width="3"></rect> <rect x="320" y="85" width="60" height="90" fill="#E3C24A" opacity="0.4" stroke="#111111" stroke-width="3"></rect> <!-- Crowd of people --> <!-- Person 1 --> <circle cx="70" cy="215" r="14" fill="#F5EFE4" stroke="#111111" stroke-width="3"></circle> <rect x="58" y="227" width="24" height="38" fill="#E61C72" stroke="#111111" stroke-width="3" rx="4"></rect> <circle cx="66" cy="213" r="2" fill="#111111"></circle> <circle cx="74" cy="213" r="2" fill="#111111"></circle> <!-- Person 2 --> <circle cx="130" cy="210" r="14" fill="#F5EFE4" stroke="#111111" stroke-width="3"></circle> <rect x="118" y="222" width="24" height="43" fill="#E3C24A" stroke="#111111" stroke-width="3" rx="4"></rect> <circle cx="126" cy="208" r="2" fill="#111111"></circle> <circle cx="134" cy="208" r="2" fill="#111111"></circle> <!-- Person 3 --> <circle cx="185" cy="215" r="14" fill="#F5EFE4" stroke="#111111" stroke-width="3"></circle> <rect x="173" y="227" width="24" height="38" fill="#E61C72" stroke="#111111" stroke-width="3" rx="4"></rect> <circle cx="181" cy="213" r="2" fill="#111111"></circle> <circle cx="189" cy="213" r="2" fill="#111111"></circle> <!-- Person 4 --> <circle cx="240" cy="212" r="14" fill="#F5EFE4" stroke="#111111" stroke-width="3"></circle> <rect x="228" y="224" width="24" height="41" fill="#E3C24A" stroke="#111111" stroke-width="3" rx="4"></rect> <circle cx="236" cy="210" r="2" fill="#111111"></circle> <circle cx="244" cy="210" r="2" fill="#111111"></circle> <!-- Person 5 --> <circle cx="295" cy="217" r="14" fill="#F5EFE4" stroke="#111111" stroke-width="3"></circle> <rect x="283" y="229" width="24" height="36" fill="#E61C72" stroke="#111111" stroke-width="3" rx="4"></rect> <circle cx="291" cy="215" r="2" fill="#111111"></circle> <circle cx="299" cy="215" r="2" fill="#111111"></circle> <!-- Person 6 --> <circle cx="345" cy="213" r="14" fill="#F5EFE4" stroke="#111111" stroke-width="3"></circle> <rect x="333" y="225" width="24" height="40" fill="#E3C24A" stroke="#111111" stroke-width="3" rx="4"></rect> <circle cx="341" cy="211" r="2" fill="#111111"></circle> <circle cx="349" cy="211" r="2" fill="#111111"></circle> <!-- Shopping bags --> <rect x="95" y="240" width="16" height="20" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <path d="M99 240 Q103 236 107 240" fill="none" stroke="#111111" stroke-width="2"></path> <rect x="260" y="235" width="16" height="20" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <path d="M264 235 Q268 231 272 235" fill="none" stroke="#111111" stroke-width="2"></path>
+       </svg>
+      </div><!-- Collage Frame 2 - Exhibitor Proudly Showcasing (top-right) -->
+      <div class="collage-frame" style="top: 40px; right: 10%; width: 340px; height: 250px; transform: rotate(4deg); z-index: 7;">
+       <svg viewBox="0 0 340 250" fill="none" style="width: 100%; height: 100%;"><!-- Premium stall canopy --> <path d="M15 25 Q170 10 325 25 L325 45 L15 45 Z" fill="#E61C72" stroke="#111111" stroke-width="4"></path> <circle cx="60" cy="20" r="8" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="120" cy="16" r="8" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="180" cy="14" r="8" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="240" cy="16" r="8" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="290" cy="20" r="8" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <!-- Stall structure --> <rect x="20" y="45" width="10" height="205" fill="#111111"></rect> <rect x="310" y="45" width="10" height="205" fill="#111111"></rect> <rect x="30" y="55" width="280" height="180" fill="#FFFFFF" stroke="#111111" stroke-width="4"></rect> <!-- Display table --> <rect x="70" y="160" width="200" height="20" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect> <rect x="70" y="175" width="200" height="55" fill="#E61C72" opacity="0.2" stroke="#111111" stroke-width="3"></rect> <!-- Products on table --> <rect x="85" y="135" width="35" height="30" fill="#E61C72" stroke="#111111" stroke-width="3"></rect> <circle cx="150" cy="140" r="20" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <circle cx="150" cy="140" r="12" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <rect x="185" y="130" width="40" height="35" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect> <circle cx="95" cy="195" r="12" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="130" cy="190" r="14" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="170" cy="190" r="14" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="210" cy="195" r="12" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <!-- Proud exhibitor --> <circle cx="170" cy="100" r="18" fill="#F5EFE4" stroke="#111111" stroke-width="3"></circle> <circle cx="165" cy="97" r="2.5" fill="#111111"></circle> <circle cx="175" cy="97" r="2.5" fill="#111111"></circle> <path d="M165 105 Q170 110 175 105" fill="none" stroke="#111111" stroke-width="2.5"></path> <path d="M155 90 Q165 82 175 90" fill="#111111" stroke="#111111" stroke-width="2"></path> <rect x="155" y="116" width="30" height="45" fill="#E61C72" stroke="#111111" stroke-width="3" rx="4"></rect> <!-- Arms welcoming --> <rect x="135" y="125" width="12" height="35" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <circle cx="135" cy="160" r="6" fill="#F5EFE4" stroke="#111111" stroke-width="2"></circle> <rect x="193" y="125" width="12" height="35" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <circle cx="205" cy="160" r="6" fill="#F5EFE4" stroke="#111111" stroke-width="2"></circle> <!-- Decorative elements --> <path d="M50 55 Q80 70 110 55" fill="none" stroke="#E3C24A" stroke-width="4"></path> <path d="M230 55 Q260 70 290 55" fill="none" stroke="#E3C24A" stroke-width="4"></path>
+       </svg>
+      </div><!-- Collage Frame 3 - Visitors Shopping (bottom-right) -->
+      <div class="collage-frame" style="bottom: 100px; right: 5%; width: 380px; height: 260px; transform: rotate(-2deg); z-index: 6;">
+       <svg viewBox="0 0 380 260" fill="none" style="width: 100%; height: 100%;"><!-- Decorative festive atmosphere --> <path d="M0 20 Q95 15 190 20 Q285 15 380 20" stroke="#111111" stroke-width="3" fill="none"></path> <circle cx="50" cy="16" r="7" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="130" cy="14" r="7" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="190" cy="20" r="7" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="250" cy="14" r="7" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <circle cx="330" cy="16" r="7" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <!-- Display area --> <rect x="20" y="40" width="340" height="200" fill="#FFF5E8" stroke="#111111" stroke-width="4" rx="8"></rect> <!-- Product displays --> <rect x="40" y="60" width="80" height="100" fill="#E3C24A" opacity="0.3" stroke="#111111" stroke-width="3"></rect> <rect x="140" y="60" width="80" height="100" fill="#E61C72" opacity="0.3" stroke="#111111" stroke-width="3"></rect> <rect x="240" y="60" width="100" height="100" fill="#E3C24A" opacity="0.3" stroke="#111111" stroke-width="3"></rect> <!-- Products --> <circle cx="80" cy="90" r="18" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <circle cx="80" cy="130" r="15" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <rect x="155" y="75" width="50" height="70" fill="#E61C72" stroke="#111111" stroke-width="3"></rect> <line x1="165" y1="95" x2="195" y2="95" stroke="#E3C24A" stroke-width="4"></line> <line x1="165" y1="115" x2="195" y2="115" stroke="#E3C24A" stroke-width="4"></line> <circle cx="290" cy="100" r="25" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <circle cx="290" cy="100" r="15" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <!-- Shopper 1 (left) --> <circle cx="70" cy="195" r="14" fill="#F5EFE4" stroke="#111111" stroke-width="3"></circle> <rect x="58" y="207" width="24" height="38" fill="#E3C24A" stroke="#111111" stroke-width="3" rx="4"></rect> <circle cx="66" cy="193" r="2" fill="#111111"></circle> <circle cx="74" cy="193" r="2" fill="#111111"></circle> <path d="M60 188 Q70 180 80 188" fill="#111111" stroke="#111111" stroke-width="2"></path> <!-- Shopping bags --> <rect x="45" y="220" width="16" height="20" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <path d="M49 220 Q53 216 57 220" fill="none" stroke="#111111" stroke-width="2"></path> <!-- Shopper 2 (center) --> <circle cx="180" cy="192" r="14" fill="#F5EFE4" stroke="#111111" stroke-width="3"></circle> <rect x="168" y="204" width="24" height="41" fill="#E61C72" stroke="#111111" stroke-width="3" rx="4"></rect> <circle cx="176" cy="190" r="2" fill="#111111"></circle> <circle cx="184" cy="190" r="2" fill="#111111"></circle> <!-- Hand pointing at product --> <circle cx="155" cy="180" r="5" fill="#F5EFE4" stroke="#111111" stroke-width="2"></circle> <rect x="147" y="178" width="8" height="4" fill="#F5EFE4" stroke="#111111" stroke-width="2"></rect> <!-- Shopper 3 (right) --> <circle cx="310" cy="195" r="14" fill="#F5EFE4" stroke="#111111" stroke-width="3"></circle> <rect x="298" y="207" width="24" height="38" fill="#E3C24A" stroke="#111111" stroke-width="3" rx="4"></rect> <circle cx="306" cy="193" r="2" fill="#111111"></circle> <circle cx="314" cy="193" r="2" fill="#111111"></circle> <path d="M300 188 Q310 182 320 188" fill="#111111" stroke="#111111" stroke-width="2"></path> <!-- Multiple shopping bags --> <rect x="285" y="215" width="14" height="18" fill="#E3C24A" stroke="#111111" stroke-width="2"></rect> <path d="M288 215 Q292 211 296 215" fill="none" stroke="#111111" stroke-width="2"></path> <rect x="335" y="220" width="14" height="18" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <path d="M338 220 Q342 216 346 220" fill="none" stroke="#111111" stroke-width="2"></path>
+       </svg>
+      </div><!-- Collage Frame 4 - Decor & Lights (top-left) -->
+      <div class="collage-frame" style="top: 50px; left: 5%; width: 280px; height: 200px; transform: rotate(-4deg); z-index: 5;">
+       <svg viewBox="0 0 280 200" fill="none" style="width: 100%; height: 100%;"><!-- Festive backdrop --> <rect x="0" y="0" width="280" height="200" fill="#FFF5E8"></rect> <!-- Hanging fabric banners --> <rect x="30" y="0" width="40" height="140" fill="#E61C72" stroke="#111111" stroke-width="3"></rect> <line x1="40" y1="30" x2="60" y2="30" stroke="#E3C24A" stroke-width="4"></line> <line x1="40" y1="60" x2="60" y2="60" stroke="#E3C24A" stroke-width="4"></line> <line x1="40" y1="90" x2="60" y2="90" stroke="#E3C24A" stroke-width="4"></line> <circle cx="50" cy="120" r="10" fill="#E3C24A" stroke="#111111" stroke-width="2"></circle> <rect x="120" y="0" width="40" height="140" fill="#E3C24A" stroke="#111111" stroke-width="3"></rect> <circle cx="140" cy="40" r="12" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="140" cy="80" r="12" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <rect x="130" y="110" width="20" height="20" fill="#E61C72" stroke="#111111" stroke-width="2"></rect> <rect x="210" y="0" width="40" height="140" fill="#E61C72" stroke="#111111" stroke-width="3"></rect> <path d="M220 50 L240 70 L220 90" fill="#E3C24A" stroke="#111111" stroke-width="2"></path> <path d="M220 100 L240 120 L220 140" fill="#E3C24A" stroke="#111111" stroke-width="2"></path> <!-- Decorative lights/diyas --> <circle cx="50" cy="165" r="12" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <path d="M45 160 L50 155 L55 160" fill="#E61C72" stroke="#111111" stroke-width="2"></path> <circle cx="100" cy="170" r="12" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <path d="M95 165 L100 160 L105 165" fill="#E3C24A" stroke="#111111" stroke-width="2"></path> <circle cx="140" cy="165" r="12" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <path d="M135 160 L140 155 L145 160" fill="#E61C72" stroke="#111111" stroke-width="2"></path> <circle cx="180" cy="170" r="12" fill="#E61C72" stroke="#111111" stroke-width="3"></circle> <path d="M175 165 L180 160 L185 165" fill="#E3C24A" stroke="#111111" stroke-width="2"></path> <circle cx="230" cy="165" r="12" fill="#E3C24A" stroke="#111111" stroke-width="3"></circle> <path d="M225 160 L230 155 L235 160" fill="#E61C72" stroke="#111111" stroke-width="2"></path>
+       </svg>
+      </div><!-- Collage Frame 5 - Fabrics & Textiles (bottom-left) -->
+      <div class="collage-frame" style="bottom: 60px; left: 12%; width: 300px; height: 220px; transform: rotate(3deg); z-index: 4;">
+       <svg viewBox="0 0 300 220" fill="none" style="width: 100%; height: 100%;"><rect x="0" y="0" width="300" height="220" fill="#FFFFFF"></rect> <!-- Fabric rolls and patterns --> <rect x="20" y="30" width="80" height="160" fill="#E61C72" opacity="0.3" stroke="#111111" stroke-width="3"></rect> <path d="M30 50 Q60 40 90 50" fill="none" stroke="#111111" stroke-width="3"></path> <path d="M30 80 Q60 70 90 80" fill="none" stroke="#111111" stroke-width="3"></path> <path d="M30 110 Q60 100 90 110" fill="none" stroke="#111111" stroke-width="3"></path> <path d="M30 140 Q60 130 90 140" fill="none" stroke="#111111" stroke-width="3"></path> <path d="M30 170 Q60 160 90 170" fill="none" stroke="#111111" stroke-width="3"></path> <rect x="110" y="30" width="80" height="160" fill="#E3C24A" opacity="0.3" stroke="#111111" stroke-width="3"></rect> <circle cx="150" cy="70" r="15" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="150" cy="110" r="15" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <circle cx="150" cy="150" r="15" fill="#E61C72" stroke="#111111" stroke-width="2"></circle> <rect x="200" y="30" width="80" height="160" fill="#E61C72" opacity="0.3" stroke="#111111" stroke-width="3"></rect> <rect x="215" y="50" width="50" height="30" fill="#E3C24A" stroke="#111111" stroke-width="2" transform="rotate(45 240 65)"></rect> <rect x="215" y="100" width="50" height="30" fill="#E3C24A" stroke="#111111" stroke-width="2" transform="rotate(45 240 115)"></rect> <rect x="215" y="150" width="50" height="30" fill="#E3C24A" stroke="#111111" stroke-width="2" transform="rotate(45 240 165)"></rect>
+       </svg>
+      </div><!-- Floating Stat Badges -->
+      <div class="stat-badge" style="top: 30px; left: 50%; transform: translateX(-50%) rotate(-5deg); --rotate: -5deg; background-color: #E61C72; color: #FFFFFF;">
+       50,000+ Visitors
+      </div>
+      <div class="stat-badge" style="top: 320px; right: 2%; --rotate: 4deg; background-color: #E3C24A; color: #111111;">
+       500+ Exhibitors
+      </div>
+      <div class="stat-badge" style="bottom: 50px; left: 3%; --rotate: -3deg; background-color: #FFFFFF; color: #111111;">
+       12+ Cities
+      </div>
+      <div class="stat-badge" style="bottom: 180px; left: 48%; --rotate: 2deg; background-color: #E61C72; color: #FFFFFF;">
+       100+ Exhibitions
+      </div><!-- Quote Bubbles -->
+      <div class="quote-bubble" style="top: 420px; left: 2%; color: #111111;">
+       "Amazing crowd &amp; sales!"
+      </div>
+      <div class="quote-bubble" style="top: 200px; right: 3%; color: #111111;">
+       "Best lifestyle exhibition experience"
+      </div>
+      <div class="quote-bubble" style="bottom: 20px; right: 35%; color: #111111;">
+       "Beautifully curated and energetic"
+      </div>
+     </div>
+    </div>
+   </section>
+   <footer class="footer-wrapper" style="padding-top: 0; position: relative;"><!-- Decorative Top Divider - Rangoli Border -->
+   <div style="position: relative; height: 80px; overflow: hidden;">
+    <svg viewbox="0 0 1400 80" fill="none" style="width: 100%; height: 100%;" preserveaspectratio="none"><!-- Wavy fabric ribbon --> <path d="M0 40 Q350 20 700 40 T1400 40" fill="none" stroke="#E61C72" stroke-width="6" /> <path d="M0 48 Q350 28 700 48 T1400 48" fill="none" stroke="#E3C24A" stroke-width="4" /> <!-- Rangoli-inspired patterns --> <circle cx="100" cy="40" r="10" fill="#E61C72" stroke="#111111" stroke-width="2" /> <circle cx="100" cy="40" r="5" fill="#E3C24A" stroke="#111111" stroke-width="1" /> <circle cx="350" cy="30" r="10" fill="#E3C24A" stroke="#111111" stroke-width="2" /> <circle cx="350" cy="30" r="5" fill="#E61C72" stroke="#111111" stroke-width="1" /> <circle cx="700" cy="40" r="10" fill="#E61C72" stroke="#111111" stroke-width="2" /> <circle cx="700" cy="40" r="5" fill="#E3C24A" stroke="#111111" stroke-width="1" /> <circle cx="1050" cy="30" r="10" fill="#E3C24A" stroke="#111111" stroke-width="2" /> <circle cx="1050" cy="30" r="5" fill="#E61C72" stroke="#111111" stroke-width="1" /> <circle cx="1300" cy="40" r="10" fill="#E61C72" stroke="#111111" stroke-width="2" /> <circle cx="1300" cy="40" r="5" fill="#E3C24A" stroke="#111111" stroke-width="1" /> <!-- Small dots pattern --> <circle cx="200" cy="35" r="4" fill="#E3C24A" stroke="#111111" stroke-width="1" /> <circle cx="220" cy="40" r="4" fill="#E61C72" stroke="#111111" stroke-width="1" /> <circle cx="240" cy="35" r="4" fill="#E3C24A" stroke="#111111" stroke-width="1" /> <circle cx="500" cy="35" r="4" fill="#E61C72" stroke="#111111" stroke-width="1" /> <circle cx="520" cy="40" r="4" fill="#E3C24A" stroke="#111111" stroke-width="1" /> <circle cx="540" cy="35" r="4" fill="#E61C72" stroke="#111111" stroke-width="1" /> <circle cx="850" cy="35" r="4" fill="#E3C24A" stroke="#111111" stroke-width="1" /> <circle cx="870" cy="40" r="4" fill="#E61C72" stroke="#111111" stroke-width="1" /> <circle cx="890" cy="35" r="4" fill="#E3C24A" stroke="#111111" stroke-width="1" /> <circle cx="1150" cy="35" r="4" fill="#E61C72" stroke="#111111" stroke-width="1" /> <circle cx="1170" cy="40" r="4" fill="#E3C24A" stroke="#111111" stroke-width="1" /> <circle cx="1190" cy="35" r="4" fill="#E61C72" stroke="#111111" stroke-width="1" />
+    </svg>
+   </div><!-- Floating Lotus Background Elements -->
+   <svg class="floating-lotus lotus-1" viewbox="0 0 80 80" fill="none"><ellipse cx="40" cy="45" rx="22" ry="30" fill="#E61C72" stroke="#111111" stroke-width="2" /> <ellipse cx="25" cy="40" rx="16" ry="22" fill="#E61C72" stroke="#111111" stroke-width="2" transform="rotate(-30 25 40)" /> <ellipse cx="55" cy="40" rx="16" ry="22" fill="#E61C72" stroke="#111111" stroke-width="2" transform="rotate(30 55 40)" /> <ellipse cx="40" cy="42" rx="16" ry="20" fill="#E3C24A" stroke="#111111" stroke-width="2" /> <circle cx="40" cy="40" r="8" fill="#E61C72" stroke="#111111" stroke-width="2" />
+   </svg>
+   <svg class="floating-lotus lotus-2" viewbox="0 0 100 100" fill="none"><ellipse cx="50" cy="55" rx="28" ry="38" fill="#E3C24A" stroke="#111111" stroke-width="2" /> <ellipse cx="30" cy="50" rx="20" ry="30" fill="#E3C24A" stroke="#111111" stroke-width="2" transform="rotate(-30 30 50)" /> <ellipse cx="70" cy="50" rx="20" ry="30" fill="#E3C24A" stroke="#111111" stroke-width="2" transform="rotate(30 70 50)" /> <ellipse cx="50" cy="52" rx="20" ry="28" fill="#E61C72" stroke="#111111" stroke-width="2" /> <circle cx="50" cy="50" r="12" fill="#E3C24A" stroke="#111111" stroke-width="2" />
+   </svg>
+   <svg class="floating-lotus lotus-3" viewbox="0 0 70 70" fill="none"><ellipse cx="35" cy="40" rx="20" ry="26" fill="#E61C72" stroke="#111111" stroke-width="2" /> <ellipse cx="22" cy="36" rx="14" ry="20" fill="#E61C72" stroke="#111111" stroke-width="2" transform="rotate(-30 22 36)" /> <ellipse cx="48" cy="36" rx="14" ry="20" fill="#E61C72" stroke="#111111" stroke-width="2" transform="rotate(30 48 36)" /> <ellipse cx="35" cy="38" rx="14" ry="18" fill="#E3C24A" stroke="#111111" stroke-width="2" /> <circle cx="35" cy="36" r="7" fill="#E61C72" stroke="#111111" stroke-width="2" />
+   </svg><!-- Main Footer Content -->
+   <div class="mx-auto" style="max-width: 1400px; padding: 80px 20px 60px;">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-20"><!-- Brand Section -->
+     <div>
+      <div class="mb-6">
+       <svg width="100" height="100" viewbox="0 0 100 100" fill="none" style="margin-bottom: 20px;"><ellipse cx="50" cy="55" rx="28" ry="38" fill="#E61C72" stroke="#111111" stroke-width="3" /> <ellipse cx="30" cy="50" rx="20" ry="30" fill="#E61C72" stroke="#111111" stroke-width="3" transform="rotate(-30 30 50)" /> <ellipse cx="70" cy="50" rx="20" ry="30" fill="#E61C72" stroke="#111111" stroke-width="3" transform="rotate(30 70 50)" /> <ellipse cx="50" cy="52" rx="20" ry="28" fill="#E3C24A" stroke="#111111" stroke-width="2" /> <ellipse cx="38" cy="48" rx="15" ry="22" fill="#E3C24A" stroke="#111111" stroke-width="2" transform="rotate(-25 38 48)" /> <ellipse cx="62" cy="48" rx="15" ry="22" fill="#E3C24A" stroke="#111111" stroke-width="2" transform="rotate(25 62 48)" /> <circle cx="50" cy="50" r="12" fill="#E61C72" stroke="#111111" stroke-width="3" /> <circle cx="50" cy="50" r="6" fill="#E3C24A" stroke="#111111" stroke-width="2" />
+       </svg>
+       <h3 class="font-display font-bold" style="color: #111111; font-size: 32px; letter-spacing: 0.1em; margin-bottom: 12px;">RANG</h3>
+      </div>
+      <p class="font-body" style="color: #2A2A2A; font-size: 15px; line-height: 1.7; font-weight: 300; margin-bottom: 20px;">Celebrating colours, culture, and lifestyle through premium exhibitions across India. We bring together the finest artisans, designers, and brands.</p><!-- Small decorative element -->
+      <div style="display: flex; gap: 6px; margin-top: 16px;">
+       <div style="width: 12px; height: 12px; background-color: #E61C72; border: 2px solid #111111; border-radius: 50%;"></div>
+       <div style="width: 12px; height: 12px; background-color: #E3C24A; border: 2px solid #111111; border-radius: 50%;"></div>
+       <div style="width: 12px; height: 12px; background-color: #E61C72; border: 2px solid #111111; border-radius: 50%;"></div>
+      </div>
+     </div><!-- Explore Links -->
+     <div>
+      <h4 class="font-display font-bold mb-6" style="color: #111111; font-size: 20px;">Explore</h4><!-- Small stall divider -->
+      <svg width="60" height="40" viewbox="0 0 60 40" fill="none" style="margin-bottom: 16px;"><path d="M5 10 Q30 5 55 10 L55 15 L5 15 Z" fill="#E61C72" stroke="#111111" stroke-width="2" /> <rect x="8" y="15" width="3" height="25" fill="#111111" /> <rect x="49" y="15" width="3" height="25" fill="#111111" /> <rect x="11" y="18" width="38" height="20" fill="#FFF9EF" stroke="#111111" stroke-width="2" />
+      </svg>
+      <nav><a href="#exhibitions" class="footer-link">Exhibitions</a> <a href="#cities" class="footer-link">Cities</a> <a href="#gallery" class="footer-link">Gallery</a> <a href="#testimonials" class="footer-link">Testimonials</a>
+      </nav>
+     </div><!-- Be a Part of RANG Links -->
+     <div>
+      <h4 class="font-display font-bold mb-6" style="color: #111111; font-size: 20px;">Be a Part of RANG</h4><!-- Small fabric fold divider -->
+      <svg width="60" height="40" viewbox="0 0 60 40" fill="none" style="margin-bottom: 16px;"><rect x="5" y="10" width="50" height="28" fill="#E3C24A" stroke="#111111" stroke-width="2" rx="4" /> <line x1="15" y1="18" x2="45" y2="18" stroke="#E61C72" stroke-width="3" /> <line x1="15" y1="26" x2="45" y2="26" stroke="#E61C72" stroke-width="3" /> <circle cx="30" cy="30" r="4" fill="#E61C72" stroke="#111111" stroke-width="2" />
+      </svg>
+      <nav><a href="#visitors" class="footer-link">For Visitors</a> <a href="#exhibitors" class="footer-link">For Exhibitors</a> <a href="#book-stall" class="footer-link">Book a Stall</a> <a href="#contact" class="footer-link">Contact Us</a>
+      </nav>
+     </div><!-- Connect Section -->
+     <div>
+      <h4 class="font-display font-bold mb-6" style="color: #111111; font-size: 20px;">Connect With Us</h4><!-- Small lotus divider -->
+      <svg width="60" height="50" viewbox="0 0 60 50" fill="none" style="margin-bottom: 16px;"><ellipse cx="30" cy="28" rx="16" ry="22" fill="#E61C72" stroke="#111111" stroke-width="2" /> <ellipse cx="18" cy="25" rx="12" ry="16" fill="#E61C72" stroke="#111111" stroke-width="2" transform="rotate(-30 18 25)" /> <ellipse cx="42" cy="25" rx="12" ry="16" fill="#E61C72" stroke="#111111" stroke-width="2" transform="rotate(30 42 25)" /> <ellipse cx="30" cy="26" rx="10" ry="14" fill="#E3C24A" stroke="#111111" stroke-width="2" /> <circle cx="30" cy="25" r="6" fill="#E61C72" stroke="#111111" stroke-width="2" />
+      </svg><!-- Social Media Icons -->
+      <div style="display: flex; gap: 12px; margin-bottom: 24px; flex-wrap: wrap;">
+       <div class="social-icon">
+        <svg width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+        </svg>
+       </div>
+       <div class="social-icon">
+        <svg width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" /> <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /> <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+        </svg>
+       </div>
+       <div class="social-icon">
+        <svg width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="#111111" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /> <rect x="2" y="9" width="4" height="12" /> <circle cx="4" cy="4" r="2" />
+        </svg>
+       </div>
+       <div class="social-icon">
+        <svg width="24" height="24" viewbox="0 0 24 24" fill="#111111"><path d="M8 19V5l11 7-11 7z" />
+        </svg>
+       </div>
+      </div><!-- Contact Info -->
+      <div style="margin-top: 20px;">
+       <div class="contact-item">
+        <svg class="contact-icon" viewbox="0 0 24 24" fill="none" stroke="#E61C72" stroke-width="2"><rect x="3" y="4" width="18" height="16" rx="2" /> <path d="M3 7l9 6 9-6" />
+        </svg><span>hello@rang.in</span>
+       </div>
+       <div class="contact-item">
+        <svg class="contact-icon" viewbox="0 0 24 24" fill="none" stroke="#E61C72" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+        </svg><span>+91 98765 43210</span>
+       </div>
+       <div class="contact-item">
+        <svg class="contact-icon" viewbox="0 0 24 24" fill="none" stroke="#E61C72" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" /> <circle cx="12" cy="10" r="3" />
+        </svg><span>Across India</span>
+       </div>
+      </div>
+     </div>
+    </div><!-- CTA Section -->
+    <div style="background: linear-gradient(135deg, rgba(230, 28, 114, 0.05) 0%, rgba(227, 194, 74, 0.05) 100%); border: 3px solid #111111; border-radius: 24px; padding: 48px 32px; text-align: center; margin-bottom: 60px; position: relative; overflow: hidden;"><!-- Decorative hanging threads -->
+     <div style="position: absolute; top: 0; left: 20%; width: 3px; height: 60px; background: linear-gradient(to bottom, #E61C72, transparent);"></div>
+     <div style="position: absolute; top: 0; left: 40%; width: 3px; height: 60px; background: linear-gradient(to bottom, #E3C24A, transparent);"></div>
+     <div style="position: absolute; top: 0; right: 40%; width: 3px; height: 60px; background: linear-gradient(to bottom, #E61C72, transparent);"></div>
+     <div style="position: absolute; top: 0; right: 20%; width: 3px; height: 60px; background: linear-gradient(to bottom, #E3C24A, transparent);"></div>
+     <h3 class="font-display font-bold mb-4" style="color: #111111; font-size: clamp(1.5rem, 3vw, 2rem); position: relative; z-index: 2;">Join the RANG Experience</h3>
+     <p class="font-body mb-8" style="color: #2A2A2A; font-size: 16px; font-weight: 300; max-width: 600px; margin: 0 auto 32px; position: relative; z-index: 2;">Whether you're discovering new brands or showcasing your creations, RANG is where India's lifestyle magic happens.</p>
+     <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; position: relative; z-index: 2;"><button class="footer-cta-button footer-cta-primary"> Explore Upcoming Exhibitions </button> <button class="footer-cta-button footer-cta-secondary"> Exhibit With RANG </button>
+     </div>
+    </div><!-- Bottom Copyright Strip -->
+    <div style="border-top: 2px solid rgba(17, 17, 17, 0.1); padding-top: 32px; text-align: center;">
+     <p class="font-body" style="color: #2A2A2A; font-size: 14px; font-weight: 300; margin-bottom: 16px;">© 2024 RANG Exhibitions – Made with love for Indian craft, fashion &amp; lifestyle.</p><!-- Final decorative element -->
+     <div style="display: flex; justify-content: center; gap: 8px; margin-top: 20px;">
+      <svg width="30" height="30" viewbox="0 0 30 30" fill="none"><circle cx="15" cy="15" r="10" fill="#E61C72" stroke="#111111" stroke-width="2" /> <circle cx="15" cy="15" r="5" fill="#E3C24A" stroke="#111111" stroke-width="1" />
+      </svg>
+      <svg width="30" height="30" viewbox="0 0 30 30" fill="none"><rect x="5" y="5" width="20" height="20" fill="#E3C24A" stroke="#111111" stroke-width="2" rx="3" /> <circle cx="15" cy="15" r="5" fill="#E61C72" stroke="#111111" stroke-width="1" />
+      </svg>
+      <svg width="30" height="30" viewbox="0 0 30 30" fill="none"><circle cx="15" cy="15" r="10" fill="#E61C72" stroke="#111111" stroke-width="2" /> <circle cx="15" cy="15" r="5" fill="#E3C24A" stroke="#111111" stroke-width="1" />
+      </svg>
+     </div>
+    </div>
+   </div>
+  </footer>
+  <script>
+    // Mobile Menu Functionality
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const closeMenuBtn = document.getElementById('close-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileOverlay = document.getElementById('mobile-overlay');
+    const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+
+    function openMobileMenu() {
+      mobileMenu.classList.add('active');
+      mobileOverlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.classList.remove('active');
+      mobileOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    hamburgerBtn.addEventListener('click', openMobileMenu);
+    closeMenuBtn.addEventListener('click', closeMobileMenu);
+    mobileOverlay.addEventListener('click', closeMobileMenu);
+
+    mobileNavLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const target = document.querySelector(link.getAttribute('href'));
+        closeMobileMenu();
+        if (target) {
+          setTimeout(() => {
+            target.scrollIntoView({ behavior: 'smooth' });
+          }, 300);
+        }
+      });
+    });
+
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.nav-wrapper');
+      if (window.scrollY > 50) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+    });
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth' });
+        }
+      });
+    });
+
+    // City Stall Interactivity
+    const cityStalls = document.querySelectorAll('.city-stall');
+    const modalOverlay = document.getElementById('city-modal-overlay');
+
+    function openCityModal(cityName) {
+      const modal = document.getElementById(`city-modal-${cityName}`);
+      if (modal) {
+        modalOverlay.classList.add('active');
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      }
+    }
+
+    function closeCityModal() {
+      const modals = document.querySelectorAll('.city-modal');
+      modals.forEach(modal => modal.classList.remove('active'));
+      modalOverlay.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    // Make closeCityModal globally accessible
+    window.closeCityModal = closeCityModal;
+
+    cityStalls.forEach(stall => {
+      stall.addEventListener('click', () => {
+        const cityName = stall.getAttribute('data-city');
+        openCityModal(cityName);
+      });
+    });
+
+    modalOverlay.addEventListener('click', closeCityModal);
+
+    // Carousel Functionality
+    const carouselTrack = document.getElementById('carousel-track');
+    const prevButton = document.getElementById('carousel-prev');
+    const nextButton = document.getElementById('carousel-next');
+    let currentIndex = 0;
+
+    function getVisibleSlides() {
+      const width = window.innerWidth;
+      if (width >= 1280) return 4;
+      if (width >= 768) return 2;
+      return 1;
+    }
+
+    function getSlideWidth() {
+      const width = window.innerWidth;
+      if (width >= 768) return 280 + 30; // slide width + gap
+      if (width >= 480) return 220 + 30;
+      return 200 + 30;
+    }
+
+    function getTotalSlides() {
+      return carouselTrack.children.length;
+    }
+
+    function updateCarousel() {
+      const slideWidth = getSlideWidth();
+      const offset = -currentIndex * slideWidth;
+      carouselTrack.style.transform = `translateX(${offset}px)`;
+      updateButtons();
+    }
+
+    function updateButtons() {
+      const visibleSlides = getVisibleSlides();
+      const totalSlides = getTotalSlides();
+      
+      prevButton.disabled = currentIndex === 0;
+      nextButton.disabled = currentIndex >= totalSlides - visibleSlides;
+    }
+
+    prevButton.addEventListener('click', () => {
+      if (currentIndex > 0) {
+        currentIndex--;
+        updateCarousel();
+      }
+    });
+
+    nextButton.addEventListener('click', () => {
+      const visibleSlides = getVisibleSlides();
+      const totalSlides = getTotalSlides();
+      
+      if (currentIndex < totalSlides - visibleSlides) {
+        currentIndex++;
+        updateCarousel();
+      }
+    });
+
+    window.addEventListener('resize', () => {
+      const visibleSlides = getVisibleSlides();
+      const totalSlides = getTotalSlides();
+      
+      // Adjust currentIndex if needed after resize
+      if (currentIndex > totalSlides - visibleSlides) {
+        currentIndex = Math.max(0, totalSlides - visibleSlides);
+      }
+      
+      updateCarousel();
+    });
+
+    // Initialize carousel
+    updateCarousel();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9b635a5e17c57f8b',t:'MTc2NzExNjc0OC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script><iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border: none; visibility: hidden;"></iframe><!-- Code injected by live-server -->
+<script>
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function () {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					var parent = elem.parentElement || head;
+					parent.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					parent.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function (msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+				console.log('Live reload enabled.');
+				sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+			}
+		})();
+	}
+	else {
+		console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+	}
+	// ]]>
+</script>
+
+</body></html>

@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Verify Your Email - Rang Exhibition</title>
+    <style>
+        /* Responsive styles - cannot be inlined */
+        @media only screen and (max-width: 600px) {
+            .email-header,
+            .email-content,
+            .email-footer {
+                padding: 25px 15px !important;
+            }
+            
+            .logo-img {
+                max-width: 60px !important;
+            }
+            
+            .business-name {
+                font-size: 18px !important;
+            }
+            
+            .business-tagline {
+                font-size: 12px !important;
+            }
+            
+            .email-title {
+                font-size: 22px !important;
+            }
+            
+            .email-text {
+                font-size: 14px !important;
+            }
+            
+            .verify-button {
+                padding: 14px 20px !important;
+                font-size: 15px !important;
+            }
+            
+            .verification-box {
+                padding: 20px 12px !important;
+            }
+            
+            .alternative-link {
+                padding: 15px 12px !important;
+            }
+            
+            .important-note {
+                padding: 14px 15px !important;
+            }
+        }
+    </style>
+</head>
+<body style="margin: 0; padding: 0; width: 100%; background-color: #F5F5F5; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%;">
+    <table role="presentation" width="100%" cellspacing="0" cellpadding="0" border="0" style="background-color: #F5F5F5; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+        <tr>
+            <td align="center" style="padding: 20px 10px;">
+                <table role="presentation" class="email-container" width="600" cellspacing="0" cellpadding="0" border="0" style="max-width: 600px; width: 100%; background-color: #FFFFFF; margin: 0 auto; border-collapse: collapse; mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                    
+                    <!-- Decorative Border -->
+                    <tr>
+                        <td style="height: 6px; background: linear-gradient(90deg, #DFBE40 0%, #F3D02D 25%, #DFBE40 50%, #F3D02D 75%, #DFBE40 100%);"></td>
+                    </tr>
+                    
+                    <!-- Header -->
+                    <tr>
+                        <td class="email-header" style="background: linear-gradient(135deg, #F5EDD8 0%, #F9F5ED 100%); padding: 30px 40px; border-bottom: 4px solid #F3D02D; text-align: center;">
+                            <div style="display: block; text-align: center; margin-bottom: 12px;">
+                                <img src="https://rangexhibition.com/admin/assets/uploads/images/logos/logo-nav.png" alt="Rang Exhibition" class="logo-img" style="max-width: 80px; height: auto; display: inline-block; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;">
+                            </div>
+                            <div style="display: block; text-align: center;">
+                                <h1 class="business-name" style="font-size: 22px; font-weight: 700; color: #333333; margin: 0 0 4px 0; line-height: 1.2;">Rang Exhibition</h1>
+                                <p class="business-tagline" style="font-size: 13px; color: #666666; margin: 0; line-height: 1.4;">Creating unforgettable lifestyle experiences</p>
+                            </div>
+                        </td>
+                    </tr>
+                    
+                    <!-- Main Content -->
+                    <tr>
+                        <td class="email-content" style="padding: 50px 40px;">
+                            <h1 class="email-title" style="font-size: 28px; font-weight: 700; color: #333333; margin: 0 0 20px 0; text-align: center;">Welcome to Rang Exhibition!</h1>
+                            
+                            <p class="email-greeting" style="font-size: 18px; color: #333333; margin: 0 0 16px 0; font-weight: 600;">Hello {vendor_name}</p>
+                            
+                            <p class="email-text" style="font-size: 15px; color: #666666; line-height: 1.8; margin: 0 0 16px 0;">
+                                Thank you for registering as a vendor with Rang Exhibition! We're excited to have you join our vibrant community of lifestyle and brand exhibitors.
+                            </p>
+                            
+                            <p class="email-text" style="font-size: 15px; color: #666666; line-height: 1.8; margin: 0 0 16px 0;">
+                                To complete your registration and activate your vendor account, please verify your email address by clicking the button below:
+                            </p>
+                            
+                            <!-- Verification Box -->
+                            <div class="verification-box" style="background: linear-gradient(135deg, rgba(243, 208, 45, 0.08) 0%, rgba(223, 190, 64, 0.08) 100%); border: 2px dashed #F3D02D; border-radius: 12px; padding: 30px; text-align: center; margin: 30px 0;">
+                                <div style="font-size: 48px; color: #F3D02D; margin-bottom: 16px;">
+                                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <circle cx="12" cy="12" r="10" stroke="#F3D02D" stroke-width="2" fill="none"/>
+                                        <path d="M8 12L11 15L16 9" stroke="#F3D02D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                    </svg>
+                                </div>
+                                <p class="email-text" style="font-size: 15px; color: #666666; line-height: 1.8; margin: 0 0 16px 0;"><strong>Verify Your Email Address</strong></p>
+                                
+                                <a href="{verification_link}" target="_blank" class="verify-button" style="display: inline-block; background: #F3D02D; color: #333333; text-decoration: none; padding: 16px 40px; border-radius: 8px; font-size: 16px; font-weight: 700; margin: 0; box-shadow: 0 4px 12px rgba(243, 208, 45, 0.3); max-width: 100%; box-sizing: border-box;">
+                                    Verify Email Address
+                                </a>
+                                
+                                <p class="email-text" style="font-size: 13px; margin-top: 16px; margin-bottom: 0;">
+                                    This link will expire in <strong>24 hours</strong>
+                                </p>
+                            </div>
+                            
+                            <!-- Alternative Link -->
+                            <div class="alternative-link" style="background: #F9F9F9; border: 1px solid #E8E3D8; border-radius: 8px; padding: 20px; margin: 20px 0;">
+                                <p style="font-size: 13px; color: #666666; margin: 0 0 10px 0;"><strong>Having trouble with the button?</strong></p>
+                                <p style="font-size: 13px; color: #666666; margin: 0 0 10px 0;">Copy and paste this link into your browser:</p>
+                                <a href="{verification_link}" target="_blank" style="word-break: break-all; font-size: 12px; color: #F3D02D; text-decoration: none;">{verification_link}</a>
+                            </div>
+                            
+                            <!-- Important Note -->
+                            <div class="important-note" style="background: #FFF9E6; border-left: 4px solid #F3D02D; padding: 16px 20px; margin: 20px 0;">
+                                <p style="font-size: 14px; color: #666666; margin: 0;">
+                                    <strong style="color: #333333;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: inline-block; vertical-align: middle; margin-right: 4px;">
+                                        <path d="M12 2L2 20h20L12 2z" fill="#F3D02D"/>
+                                        <path d="M12 10v4M12 16h.01" stroke="#333" stroke-width="2" stroke-linecap="round"/>
+                                    </svg> Important:</strong> If you didn't create an account with Rang Exhibition, please ignore this email. Your information is safe with us.
+                                </p>
+                            </div>
+                            
+                            <p class="email-text" style="font-size: 15px; color: #666666; line-height: 1.8; margin: 0 0 16px 0; font-weight: bold;">
+                                Once verified, you'll be able to:
+                            </p>
+                            <ul style="font-size: 15px; color: #666666; line-height: 1.8; padding-left: 20px;">
+                                <li>Access your vendor dashboard</li>
+                                <li>Manage your business profile</li>
+                                <li>Register for upcoming exhibitions</li>
+                                <li>Connect with thousands of potential customers</li>
+                            </ul>
+                            
+                            <p class="email-text" style="margin-top: 24px;">
+                                If you have any questions or need assistance, feel free to reach out to our support team at 
+                                <a href="mailto:rangexhibition.india@gmail.com" style="color: #F3D02D; text-decoration: none;">rangexhibition.india@gmail.com</a>
+                            </p>
+                            
+                            <p class="email-text" style="margin-top: 24px;">
+                                <strong>Best regards,</strong><br>
+                                The Rang Exhibition Team
+                            </p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Footer -->
+                    <tr>
+                        <td class="email-footer" style="background: #F5EDD8; padding: 30px 40px; text-align: center; border-top: 1px solid #E8E3D8;">
+                            <img src="https://rangexhibition.com/admin/assets/uploads/images/logos/logo-nav.png" alt="Rang Exhibition" style="max-width: 120px; height: auto; margin-bottom: 16px; border: 0; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic;">
+                            
+                            <p class="footer-text" style="font-size: 14px; color: #666666; line-height: 1.6; margin: 0 0 16px 0;">
+                                Creating unforgettable lifestyle experiences and brand exhibitions across premier venues.
+                            </p>
+                            
+                            <!-- Social Links -->
+                            <div style="margin: 20px 0;">
+                                <a href="https://www.instagram.com/rangexhibition" class="social-link" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(223, 190, 64, 0.2); border-radius: 50%; margin: 0 6px; text-decoration: none;">
+                                    <img src="https://rangexhibition.com/admin/assets/uploads/images/icons/social-media/instagram.png" alt="Instagram" width="20" height="20" style="display: block;">
+                                </a>
+                                <a href="https://whatsapp.com/channel/0029VbBNgfOGzzKbGXSuqD2Y" class="social-link" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(223, 190, 64, 0.2); border-radius: 50%; margin: 0 6px; text-decoration: none;">
+                                    <img src="https://rangexhibition.com/admin/assets/uploads/images/icons/social-media/whatsapp.png" alt="WhatsApp" width="20" height="20" style="display: block;">
+                                </a>
+                                <a href="#" class="social-link" target="_blank" style="display: inline-flex; align-items: center; justify-content: center; width: 36px; height: 36px; background: rgba(223, 190, 64, 0.2); border-radius: 50%; margin: 0 6px; text-decoration: none;">
+                                    <img src="https://rangexhibition.com/admin/assets/uploads/images/icons/social-media/youtube.png" alt="YouTube" width="20" height="20" style="display: block;">
+                                </a>
+                            </div>
+                            
+                            <!-- Footer Links -->
+                            <div style="margin: 16px 0;">
+                                <a href="<?= get_site_option('site_url') ?>about-us/" style="color: #666666; text-decoration: none; font-size: 13px; margin: 0 8px;">About Us</a> |
+                                <a href="<?= get_site_option('site_url') ?>contact-us/" style="color: #666666; text-decoration: none; font-size: 13px; margin: 0 8px;">Contact</a> |
+                                <a href="<?= get_site_option('site_url') ?>policies/privacy-policy/" style="color: #666666; text-decoration: none; font-size: 13px; margin: 0 8px;">Privacy Policy</a> |
+                                <a href="<?= get_site_option('site_url') ?>policies/terms-and-conditions/" style="color: #666666; text-decoration: none; font-size: 13px; margin: 0 8px;">Terms</a>
+                            </div>
+                            
+                            <!-- Contact Info -->
+                            <p class="footer-text" style="font-size: 13px; color: #666666; line-height: 1.6; margin: 16px 0 0 0;">
+                                <img src="https://rangexhibition.com/admin/assets/uploads/images/icons/utility/maps-and-flags.png" alt="Location" width="14" height="14" style="display: inline-block; vertical-align: middle; margin-right: 4px;"> A101- Civil Lines, Jaipur, Rajasthan, 302006<br>
+                                <img src="https://rangexhibition.com/admin/assets/uploads/images/icons/social-media/phone-call.png" alt="Phone" width="14" height="14" style="display: inline-block; vertical-align: middle; margin-right: 4px;"> +91 76889 95560 | 
+                                <img src="https://rangexhibition.com/admin/assets/uploads/images/icons/social-media/mail-filled.png" alt="Email" width="14" height="14" style="display: inline-block; vertical-align: middle; margin-right: 4px;"> rangexhibition.india@gmail.com
+                            </p>
+                            
+                            <!-- Copyright -->
+                            <p class="copyright" style="font-size: 12px; color: #999999; margin: 16px 0 0 0;">
+                                © <?= date('Y') ?> Rang Exhibition. All rights reserved.
+                            </p>
+                        </td>
+                    </tr>
+                    
+                    <!-- Bottom Decorative Border -->
+                    <tr>
+                        <td style="height: 6px; background: linear-gradient(90deg, #DFBE40 0%, #F3D02D 25%, #DFBE40 50%, #F3D02D 75%, #DFBE40 100%);"></td>
+                    </tr>
+                    
+                </table>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>
