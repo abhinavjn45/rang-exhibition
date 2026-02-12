@@ -21,7 +21,7 @@
             <img src="<?= get_site_option('dashboard_url') ?>assets/uploads/images/logos/<?= get_site_option('logo') ?>" alt="Event Logo" class="nav-logo-img">
         </a>
         <div class="nav-cta d-none d-lg-flex">
-            <a href="<?= get_site_option('site_url') ?>exhibitor-registration/" class="u-btn-primary" id="desktop-cta">Register Now</a> 
+            <a href="<?= get_site_option('site_url') ?>exhibitor-registration/" class="u-btn-primary" id="desktop-cta">Register Here</a> 
             <a href="<?= get_site_option('site_url') ?>get-free-quote/" class="u-btn-secondary">Get Free Quote</a>
         </div>
         
