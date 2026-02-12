@@ -47,7 +47,7 @@
         </li>
         <li>
             <div class="nav-cta">
-                <a href="<?= get_site_option('site_url') ?>exhibitor-registration/" class="u-btn-primary" id="mobile-cta">Register Now</a> 
+                <a href="<?= get_site_option('site_url') ?>exhibitor-registration/" class="u-btn-primary" id="mobile-cta">Register Here</a> 
                 <a href="<?= get_site_option('site_url') ?>get-free-quote/" class="u-btn-secondary">Get Free Quote</a>
             </div>
         </li>
